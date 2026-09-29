@@ -88,8 +88,15 @@ async function main() {
     const mapKey = `${balance.baseId}:${balance.equipmentTypeId}`;
     const computed = expected.get(mapKey);
 
+    // The opening baseline has to be included. Movements cannot explain the
+    // stock a base held before the system went live, so that starting figure is
+    // recorded explicitly and forms part of the expected balance.
     const expectedOnHand =
-      (computed?.purchases || 0) + (computed?.transferIn || 0) - (computed?.transferOut || 0) - (computed?.expenditures || 0);
+      balance.openingQuantity +
+      (computed?.purchases || 0) +
+      (computed?.transferIn || 0) -
+      (computed?.transferOut || 0) -
+      (computed?.expenditures || 0);
     const expectedCommitted = computed?.committed || 0;
 
     if (expectedOnHand !== balance.onHandQuantity || expectedCommitted !== balance.committedQuantity) {

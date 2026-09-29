@@ -6,7 +6,18 @@ import morgan from "morgan";
 import { env } from "./config/env.js";
 import { prisma } from "./config/prisma.js";
 import { notFoundHandler, errorHandler } from "./middleware/errorHandler.js";
+import { attachRequestContext } from "./middleware/auditContext.js";
 import { sendSuccess } from "./utils/response.js";
+import authRoutes from "./routes/authRoutes.js";
+import baseRoutes from "./routes/baseRoutes.js";
+import equipmentTypeRoutes from "./routes/equipmentTypeRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
+import purchaseRoutes from "./routes/purchaseRoutes.js";
+import transferRoutes from "./routes/transferRoutes.js";
+import assignmentRoutes from "./routes/assignmentRoutes.js";
+import expenditureRoutes from "./routes/expenditureRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+import auditLogRoutes from "./routes/auditLogRoutes.js";
 
 const app = express();
 
@@ -33,6 +44,10 @@ app.use(
 app.use(express.json({ limit: "1mb" }));
 app.use(morgan(env.isProduction ? "combined" : "dev"));
 
+// Runs before every route so that a request id and the caller's address are
+// already available to any service that writes an audit entry.
+app.use(attachRequestContext);
+
 // Checking the database here means a broken DATABASE_URL shows up on the
 // health endpoint instead of as a confusing failure on the first real request.
 app.get("/api/health", async (req, res) => {
@@ -52,6 +67,17 @@ app.get("/api/health", async (req, res) => {
     });
   }
 });
+
+app.use("/api/auth", authRoutes);
+app.use("/api/bases", baseRoutes);
+app.use("/api/equipment-types", equipmentTypeRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/purchases", purchaseRoutes);
+app.use("/api/transfers", transferRoutes);
+app.use("/api/assignments", assignmentRoutes);
+app.use("/api/expenditures", expenditureRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/audit-logs", auditLogRoutes);
 
 app.use("/api", notFoundHandler);
 app.use(errorHandler);

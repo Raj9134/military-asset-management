@@ -6,6 +6,12 @@ export const ROLES = {
 
 export const ALL_ROLES = Object.values(ROLES);
 
+/**
+ * Roles that are pinned to a single base. Admin deliberately has no base, which
+ * is what makes "no base assigned" a meaningful state rather than missing data.
+ */
+export const BASE_SCOPED_ROLES = [ROLES.BASE_COMMANDER, ROLES.LOGISTICS_OFFICER];
+
 export const EQUIPMENT_CATEGORIES = {
   VEHICLE: "VEHICLE",
   WEAPON: "WEAPON",

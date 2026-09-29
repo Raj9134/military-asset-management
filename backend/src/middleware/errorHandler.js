@@ -49,6 +49,18 @@ export function errorHandler(err, req, res, next) {
     status = 400;
     message = "Malformed database query";
     errorName = "DATABASE_VALIDATION_ERROR";
+  } else if (
+    err instanceof Prisma.PrismaClientInitializationError ||
+    // P1000 authentication failed, P1001 server unreachable, P1002 timed out.
+    (err instanceof Prisma.PrismaClientKnownRequestError && ["P1000", "P1001", "P1002"].includes(err.code))
+  ) {
+    // The database is unreachable or refusing the credentials. This is an
+    // operational fault, not a client mistake, so it answers 503. It must not
+    // surface as a 500 because a 500 reads as "our code is broken", and it must
+    // not leak the connection details Prisma puts in the message.
+    status = 503;
+    message = "Database is unavailable, please try again shortly";
+    errorName = "DATABASE_UNAVAILABLE";
   } else if (err.type === "entity.parse.failed") {
     status = 400;
     message = "Request body is not valid JSON";
@@ -60,8 +72,13 @@ export function errorHandler(err, req, res, next) {
   const body = { success: false, message, error: errorName };
   if (details) body.details = details;
 
-  // Stack traces are useful locally and a security leak in production.
-  if (!env.isProduction && err.stack) {
+  // Stack traces help while developing and are a security leak in production.
+  // Operational faults are excluded in every environment: their messages name
+  // hosts and users, and a stack in a 503 body tells an attacker how the
+  // service is put together.
+  const isOperationalFault = errorName === "DATABASE_UNAVAILABLE";
+
+  if (!env.isProduction && !isOperationalFault && err.stack) {
     body.stack = err.stack;
   }
 

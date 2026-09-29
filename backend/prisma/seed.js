@@ -202,12 +202,18 @@ function findPairWithStock(bases, equipment, quantity) {
   return candidates[Math.floor(Math.random() * candidates.length)];
 }
 
+// Applies a partial change to the running balance. Both movements are optional
+// because a caller may change only one column, for example issuing equipment
+// raises committed without touching onHand. Defaulting the missing one to zero
+// matters: adding `current + undefined` would produce NaN rather than leaving
+// the column alone.
 function applyLedger(baseId, equipmentTypeId, change) {
   const key = ledgerKey(baseId, equipmentTypeId);
   const current = ledger.get(key) || { onHand: 0, committed: 0 };
+
   ledger.set(key, {
-    onHand: current.onHand + change.onHand,
-    committed: Math.max(0, current.committed + (change.committed || 0)),
+    onHand: current.onHand + (change.onHand ?? 0),
+    committed: Math.max(0, current.committed + (change.committed ?? 0)),
   });
 }
 
@@ -315,10 +321,20 @@ async function seedTransfers(bases, equipment, users, counter) {
 async function seedAssignments(bases, equipment, users, counter) {
   const issuers = users.filter((u) => u.role !== "LOGISTICS_OFFICER");
 
+  // Most equipment in a real store is not issued out, so the generated history
+  // keeps a floor of uncommitted stock. Without this the seed drains every
+  // balance to zero available, which both looks wrong on the dashboard and
+  // leaves nothing for the test suite to work with.
+  const KEEP_AVAILABLE_RATIO = 0.35;
+
   for (let day = 4; day < HISTORY_DAYS; day += 2) {
     const quantity = 4 + Math.floor(Math.random() * 5) * 4;
     const pair = findPairWithStock(bases, equipment, quantity);
     if (!pair) continue;
+
+    const balance = readLedger(pair.base.id, pair.item.id);
+    const floor = Math.ceil(balance.onHand * KEEP_AVAILABLE_RATIO);
+    if (balance.onHand - balance.committed - quantity < floor) continue;
 
     const person = PERSONNEL[Math.floor(Math.random() * PERSONNEL.length)];
     const issuer = issuers.find((u) => !u.baseId || u.baseId === pair.base.id) || issuers[0];
@@ -326,7 +342,7 @@ async function seedAssignments(bases, equipment, users, counter) {
 
     // Some assignments come back in full. Those release committed stock and
     // should not reduce on-hand, because the equipment never left the base.
-    const returned = Math.random() < 0.35 ? quantity : 0;
+    const returned = Math.random() < 0.45 ? quantity : 0;
     const status = returned === quantity ? "RETURNED" : returned > 0 ? "PARTIALLY_RETURNED" : "ACTIVE";
 
     await prisma.assignment.create({
@@ -363,10 +379,19 @@ async function seedExpenditures(bases, equipment, users, counter) {
 
     const equipmentType = useBulk ? ammo : equipment[Math.floor(Math.random() * equipment.length)];
 
-    // Expenditure is checked against onHand, not against available. Writing off
-    // stock that is already issued to personnel is legitimate, so committed
-    // units must not be excluded here the way they are for an assignment.
-    const eligible = bases.filter((base) => readLedger(base.id, equipmentType.id).onHand >= quantity);
+    // An unlinked write-off can only come from stock that is not already issued,
+    // and it must leave stores with something still on the shelf.
+    //
+    // The application allows an expenditure to exceed available stock when it
+    // names the assignment it consumed from, because that clears committed in the
+    // same movement. These seed rows have no assignment link, so they must draw
+    // on available stock, otherwise committed would end up greater than on hand
+    // and the database would rightly refuse the row.
+    const floor = Math.ceil(OPENING_STOCK.find(
+      (row) => row.equipmentCode === equipmentType.code
+    )?.quantity * 0.3 || 0);
+
+    const eligible = bases.filter((base) => availableAt(base.id, equipmentType.id) - quantity >= floor);
     const base = eligible[Math.floor(Math.random() * eligible.length)];
     if (!base) continue;
 
