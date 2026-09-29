@@ -5,8 +5,10 @@ node_modules/
 dist/
 build/
 coverage/
+frontend/.vite/
 
-# Environment files - never commit real secrets
+# Environment files - never commit real secrets.
+# Both backend/.env and frontend/.env match these patterns wherever they sit.
 .env
 .env.local
 .env.*.local
@@ -20,6 +22,3 @@ npm-debug.log*
 .idea/
 .DS_Store
 Thumbs.db
-
-# Test artefacts
-backend/test-tmp/

@@ -1,0 +1,75 @@
+# Render blueprint for the MAMS API.
+#
+# Reproducible from a fresh checkout: `render blueprint launch` reads this file,
+# creates the database and the web service, and wires them together.
+#
+# Every secret is supplied through Render's environment variable store. No
+# credential appears in this file, and nothing here bypasses migrations,
+# authentication, authorization or the inventory transaction layer.
+
+services:
+  - type: web
+    name: mams-api
+    runtime: node
+    plan: free
+    region: singapore
+
+    # Prisma CLI is a devDependency, so the full dependency tree is installed.
+    # `migrate deploy` needs it, and pruning devDependencies would remove it
+    # before the pre-start command runs.
+    buildCommand: npm ci && npm run prisma:generate
+    startCommand: node src/server.js
+
+    # Runs on every start, before the server accepts traffic. `migrate deploy`
+    # is idempotent: with no pending migrations it exits immediately, so a
+    # restart or a scale-up is safe.
+    #
+    # preStartCommand is used rather than preDeployCommand because the latter
+    # requires a paid plan. Migrating at start is slightly more work but works
+    # on the free tier, which matters for a submission.
+    preStartCommand: npx prisma migrate deploy
+
+    healthCheckPath: /api/health
+    autoDeploy: true
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mams-db
+          property: connectionString
+
+      - key: JWT_SECRET
+        generateValue: true
+
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+
+      - key: JWT_EXPIRES_IN
+        value: 15m
+
+      - key: JWT_REFRESH_EXPIRES_IN
+        value: 7d
+
+      # Set this in the Render dashboard to the deployed frontend origin, for
+      # example https://mams.vercel.app. It is a secret rather than a value
+      # because only the real deployment URL is a valid value.
+      - key: CORS_ORIGIN
+        sync: false
+
+      # Credentials for the first administrator, used only by
+      # `npm run seed:production`. Read from the environment, never committed.
+      - key: ADMIN_EMAIL
+        sync: false
+
+      - key: ADMIN_PASSWORD
+        sync: false
+
+databases:
+  - name: mams-db
+    plan: free
+    region: singapore
+    databaseName: mams
+    user: mams_user
