@@ -1,5 +1,16 @@
-// Placeholder schema so `prisma generate` has something to work with.
-// This file is replaced by the full model set in Phase 3.
+// Military Asset Management System - database schema
+//
+// Design notes that matter when reading this file:
+//  1. Ledger tables (Purchase, Transfer, Assignment, Expenditure) are append
+//     only. Corrections insert a reversing row, they never edit or delete
+//     history. That is what "inventory history must not be destroyed" means
+//     in practice.
+//  2. StockBalance is a cache of the ledger, not the source of truth. Every
+//     write to it happens inside the same transaction as the movement row it
+//     belongs to, so the two cannot drift apart through the API.
+//  3. onHandQuantity is physical stock. committedQuantity is stock issued to
+//     personnel but not yet returned or expended. Keeping them separate is
+//     what stops an assigned-then-expended asset being subtracted twice.
 
 generator client {
   provider = "prisma-client-js"
@@ -10,9 +21,402 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ---------------------------------------------------------------- enums
+
+enum Role {
+  ADMIN
+  BASE_COMMANDER
+  LOGISTICS_OFFICER
+}
+
+enum EquipmentCategory {
+  VEHICLE
+  WEAPON
+  AMMUNITION
+  OTHER
+}
+
+enum AssetStatus {
+  IN_STOCK
+  ASSIGNED
+  IN_TRANSIT
+  MAINTENANCE
+  DISPOSED
+}
+
+enum TransferStatus {
+  PENDING
+  APPROVED
+  COMPLETED
+  REJECTED
+  CANCELLED
+}
+
+enum AssignmentStatus {
+  ACTIVE
+  PARTIALLY_RETURNED
+  RETURNED
+  EXPIRED
+}
+
+enum ExpenditureReason {
+  TRAINING
+  DAMAGE
+  LOSS
+  MAINTENANCE
+  OTHER
+}
+
+// ACTIVE rows count towards inventory. REVERSED rows are kept for the audit
+// trail but their quantity is subtracted back out during aggregation.
+enum LedgerStatus {
+  ACTIVE
+  REVERSED
+}
+
+enum AuditAction {
+  LOGIN
+  LOGIN_FAILED
+  LOGOUT
+  REGISTER
+  PASSWORD_CHANGED
+  PASSWORD_RESET
+
+  USER_CREATED
+  USER_UPDATED
+  USER_DEACTIVATED
+
+  BASE_CREATED
+  BASE_UPDATED
+
+  EQUIPMENT_CREATED
+  EQUIPMENT_UPDATED
+
+  PURCHASE_CREATED
+  PURCHASE_REVERSED
+
+  TRANSFER_CREATED
+  TRANSFER_APPROVED
+  TRANSFER_REJECTED
+  TRANSFER_CANCELLED
+  TRANSFER_COMPLETED
+
+  ASSIGNMENT_CREATED
+  ASSIGNMENT_RETURNED
+
+  EXPENDITURE_CREATED
+  EXPENDITURE_REVERSED
+}
+
+// ---------------------------------------------------------------- master data
+
 model Base {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  code        String   @unique @db.VarChar(20)
+  name        String   @db.VarChar(120)
+  location    String?  @db.VarChar(200)
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  users         User[]
+  assets        Asset[]
+  purchases     Purchase[]
+  transfersOut  Transfer[]     @relation("TransferSource")
+  transfersIn   Transfer[]     @relation("TransferDestination")
+  assignments   Assignment[]
+  expenditures  Expenditure[]
+  stockBalances StockBalance[]
+
+  @@index([isActive])
+  @@map("bases")
+}
+
+model EquipmentType {
+  id            Int               @id @default(autoincrement())
+  code          String            @unique @db.VarChar(20)
+  name          String            @db.VarChar(120)
+  category      EquipmentCategory
+  unitOfMeasure String            @default("unit") @db.VarChar(30)
+  // Trackable types get one Asset row per physical item. Ammunition does not,
+  // because a stack of rounds has no serial number to record.
+  isTrackable   Boolean           @default(false)
+  isActive      Boolean           @default(true)
+  description   String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+
+  assets        Asset[]
+  purchases     Purchase[]
+  transfers     Transfer[]
+  assignments   Assignment[]
+  expenditures  Expenditure[]
+  stockBalances StockBalance[]
+
+  @@index([category, isActive])
+  @@map("equipment_types")
+}
+
+// ---------------------------------------------------------------- users
+
+model User {
+  id           Int       @id @default(autoincrement())
+  name         String    @db.VarChar(120)
+  // Stored lowercase. Postgres citext would work too but needs an extension
+  // enabled on every new database, and normalising in the service layer costs
+  // nothing and keeps migrations portable.
+  email        String    @unique @db.VarChar(180)
+  passwordHash String    @db.VarChar(255)
+  role         Role
+  // Only meaningful for BASE_COMMANDER and LOGISTICS_OFFICER. ADMIN has no base
+  // and therefore no restriction.
+  baseId       Int?
+  isActive     Boolean   @default(true)
+  // Incremented on password change, role change or deactivation. Any JWT
+  // issued before the current value stops validating, which is how logout and
+  // forced revocation work without a token blacklist.
+  tokenVersion Int       @default(1)
+  lastLoginAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  base               Base?          @relation(fields: [baseId], references: [id], onDelete: SetNull)
+  createdPurchases   Purchase[]     @relation("PurchaseCreator")
+  initiatedTransfers Transfer[]     @relation("TransferInitiator")
+  approvedTransfers  Transfer[]     @relation("TransferApprover")
+  assignments        Assignment[]   @relation("AssignmentCreator")
+  expenditures       Expenditure[]  @relation("ExpenditureRecorder")
+  auditLogs          AuditLog[]
+  refreshTokens      RefreshToken[]
+
+  @@index([role, isActive])
+  @@index([baseId])
+  @@map("users")
+}
+
+// ---------------------------------------------------------------- assets
+
+// One row per individually identifiable item. Only used for equipment types
+// where isTrackable is true.
+model Asset {
+  id              Int         @id @default(autoincrement())
+  assetNumber     String      @unique @db.VarChar(40)
+  serialNumber    String?     @unique @db.VarChar(80)
+  equipmentTypeId Int
+  currentBaseId   Int
+  status          AssetStatus @default(IN_STOCK)
+  purchaseId      Int?
+  notes           String?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+
+  equipmentType EquipmentType @relation(fields: [equipmentTypeId], references: [id])
+  currentBase   Base          @relation(fields: [currentBaseId], references: [id])
+  purchase      Purchase?     @relation(fields: [purchaseId], references: [id], onDelete: SetNull)
+  assignments   Assignment[]
+
+  @@index([equipmentTypeId, status])
+  @@index([currentBaseId])
+  @@map("assets")
+}
+
+// ---------------------------------------------------------------- ledger
+
+model Purchase {
+  id              Int          @id @default(autoincrement())
+  referenceNumber String       @unique @db.VarChar(30)
+  baseId          Int
+  equipmentTypeId Int
+  quantity        Int
+  unitPrice       Decimal?     @db.Decimal(12, 2)
+  supplier        String?      @db.VarChar(150)
+  purchaseDate    DateTime     @db.Date
+  notes           String?
+  status          LedgerStatus @default(ACTIVE)
+  // Unique: a purchase can only be reversed once. Blocking a second reversal
+  // keeps the original quantity from being credited back twice.
+  reversedById    Int?         @unique
+  createdById     Int
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  base          Base          @relation(fields: [baseId], references: [id])
+  equipmentType EquipmentType @relation(fields: [equipmentTypeId], references: [id])
+  createdBy     User          @relation("PurchaseCreator", fields: [createdById], references: [id])
+  reversedBy    Purchase?     @relation("PurchaseReversal", fields: [reversedById], references: [id])
+  reversal      Purchase?     @relation("PurchaseReversal")
+  assets        Asset[]
+
+  @@index([baseId, purchaseDate(sort: Desc)])
+  @@index([equipmentTypeId, purchaseDate(sort: Desc)])
+  @@index([status])
+  @@map("purchases")
+}
+
+model Transfer {
+  id                Int            @id @default(autoincrement())
+  referenceNumber   String         @unique @db.VarChar(30)
+  sourceBaseId      Int
+  destinationBaseId Int
+  equipmentTypeId   Int
+  quantity          Int
+  status            TransferStatus @default(PENDING)
+  initiatedById     Int
+  approvedById      Int?
+  decisionReason    String?
+  notes             String?
+  completedAt       DateTime?
+  cancelledAt       DateTime?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  sourceBase      Base          @relation("TransferSource", fields: [sourceBaseId], references: [id])
+  destinationBase Base          @relation("TransferDestination", fields: [destinationBaseId], references: [id])
+  equipmentType   EquipmentType @relation(fields: [equipmentTypeId], references: [id])
+  initiatedBy     User          @relation("TransferInitiator", fields: [initiatedById], references: [id])
+  approvedBy      User?         @relation("TransferApprover", fields: [approvedById], references: [id])
+
+  @@index([sourceBaseId, status])
+  @@index([destinationBaseId, status])
+  @@index([createdAt(sort: Desc)])
+  @@map("transfers")
+}
+
+model Assignment {
+  id               Int              @id @default(autoincrement())
+  referenceNumber  String           @unique @db.VarChar(30)
+  baseId           Int
+  // An assignment targets either one specific asset or a bulk quantity of an
+  // equipment type. A CHECK constraint enforces that at least one is present.
+  equipmentTypeId  Int?
+  assetId          Int?
+  personnelName    String           @db.VarChar(120)
+  personnelId      String?          @db.VarChar(60)
+  designation      String?          @db.VarChar(80)
+  quantity         Int              @default(1)
+  returnedQuantity Int              @default(0)
+  assignmentDate   DateTime         @db.Date
+  status           AssignmentStatus @default(ACTIVE)
+  assignedById     Int
+  notes            String?
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+
+  base          Base           @relation(fields: [baseId], references: [id])
+  equipmentType EquipmentType? @relation(fields: [equipmentTypeId], references: [id])
+  asset         Asset?         @relation(fields: [assetId], references: [id])
+  assignedBy    User           @relation("AssignmentCreator", fields: [assignedById], references: [id])
+  expenditures  Expenditure[]
+
+  @@index([baseId, assignmentDate(sort: Desc)])
+  @@index([status])
+  @@map("assignments")
+}
+
+model Expenditure {
+  id              Int               @id @default(autoincrement())
+  referenceNumber String            @unique @db.VarChar(30)
+  baseId          Int
+  equipmentTypeId Int
+  quantity        Int
+  expenditureDate DateTime          @db.Date
+  reason          ExpenditureReason
+  notes           String?
+  status          LedgerStatus      @default(ACTIVE)
+  reversedById    Int?              @unique
+  // Set when the consumed stock came out of an open assignment. This is what
+  // lets the service clear committedQuantity at the same time, instead of the
+  // asset being written off twice.
+  assignmentId    Int?
+  recordedById    Int
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  base          Base          @relation(fields: [baseId], references: [id])
+  equipmentType EquipmentType @relation(fields: [equipmentTypeId], references: [id])
+  assignment    Assignment?   @relation(fields: [assignmentId], references: [id], onDelete: SetNull)
+  recordedBy    User          @relation("ExpenditureRecorder", fields: [recordedById], references: [id])
+  reversedBy    Expenditure?  @relation("ExpenditureReversal", fields: [reversedById], references: [id])
+  reversal      Expenditure?  @relation("ExpenditureReversal")
+
+  @@index([baseId, expenditureDate(sort: Desc)])
+  @@index([equipmentTypeId, expenditureDate(sort: Desc)])
+  @@index([status])
+  @@map("expenditures")
+}
+
+// ---------------------------------------------------------------- inventory cache
+
+model StockBalance {
+  id                Int      @id @default(autoincrement())
+  baseId            Int
+  equipmentTypeId   Int
+  // Stock present at this base at system go-live. Deliberately not derived
+  // from movements: movements cannot explain the starting state, so the
+  // baseline has to be recorded.
+  openingQuantity   Int      @default(0)
+  openingDate       DateTime @db.Date
+  onHandQuantity    Int      @default(0)
+  committedQuantity Int      @default(0)
+  version           Int      @default(1)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  base          Base          @relation(fields: [baseId], references: [id])
+  equipmentType EquipmentType @relation(fields: [equipmentTypeId], references: [id])
+
+  @@unique([baseId, equipmentTypeId], name: "stock_balance_base_equipment_key")
+  @@index([equipmentTypeId])
+  @@map("stock_balances")
+}
+
+// ---------------------------------------------------------------- audit
+
+model AuditLog {
+  id         Int         @id @default(autoincrement())
+  userId     Int?
+  // Snapshotted so the log still identifies the actor after the user row is
+  // removed or renamed.
+  userEmail  String?     @db.VarChar(180)
+  action     AuditAction
+  entityType String      @db.VarChar(40)
+  entityId   String?     @db.VarChar(60)
+  method     String      @db.VarChar(10)
+  endpoint   String      @db.VarChar(200)
+  ipAddress  String?     @db.VarChar(64)
+  userAgent  String?
+  statusCode Int?
+  // Correlates the log entry with the request that produced it.
+  requestId  String      @db.VarChar(60)
+  metadata   Json?
+  createdAt  DateTime    @default(now())
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([createdAt(sort: Desc)])
+  @@index([userId, createdAt(sort: Desc)])
+  @@index([entityType, entityId])
+  @@index([action, createdAt(sort: Desc)])
+  @@map("audit_logs")
+}
+
+// ---------------------------------------------------------------- sessions
+
+// Only the hash is stored, so a database leak cannot be replayed as sessions.
+model RefreshToken {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  tokenHash String    @unique @db.VarChar(128)
+  expiresAt DateTime
+  revokedAt DateTime?
+  userAgent String?
+  ipAddress String?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, revokedAt])
+  @@index([expiresAt])
+  @@map("refresh_tokens")
 }
