@@ -1,0 +1,44 @@
+export const ROLES = {
+  ADMIN: "ADMIN",
+  BASE_COMMANDER: "BASE_COMMANDER",
+  LOGISTICS_OFFICER: "LOGISTICS_OFFICER",
+};
+
+export const ALL_ROLES = Object.values(ROLES);
+
+export const EQUIPMENT_CATEGORIES = {
+  VEHICLE: "VEHICLE",
+  WEAPON: "WEAPON",
+  AMMUNITION: "AMMUNITION",
+  OTHER: "OTHER",
+};
+
+export const TRANSFER_STATUS = {
+  PENDING: "PENDING",
+  APPROVED: "APPROVED",
+  COMPLETED: "COMPLETED",
+  REJECTED: "REJECTED",
+  CANCELLED: "CANCELLED",
+};
+
+export const ASSIGNMENT_STATUS = {
+  ACTIVE: "ACTIVE",
+  PARTIALLY_RETURNED: "PARTIALLY_RETURNED",
+  RETURNED: "RETURNED",
+  EXPIRED: "EXPIRED",
+};
+
+export const EXPENDITURE_REASON = {
+  TRAINING: "TRAINING",
+  DAMAGE: "DAMAGE",
+  LOSS: "LOSS",
+  MAINTENANCE: "MAINTENANCE",
+  OTHER: "OTHER",
+};
+
+// Page size is capped so a client cannot ask for the whole table in one go.
+export const PAGINATION = {
+  DEFAULT_PAGE: 1,
+  DEFAULT_LIMIT: 20,
+  MAX_LIMIT: 100,
+};
