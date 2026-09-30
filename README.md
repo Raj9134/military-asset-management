@@ -547,11 +547,27 @@ military-asset-management/
 ├── database/
 │   └── database-dump.sql
 ├── docs/
-│   ├── architecture.md
-│   ├── database-schema.md
-│   └── api-documentation.md
+│   ├── api-documentation.md
+│   ├── project-documentation.md
+│   ├── video-walkthrough.md
+│   └── screenshots/            12 screens from the local application
+├── DEPLOY.md
+├── render.yaml
 └── README.md
 ```
+
+---
+
+## Documentation
+
+| Document | Contents |
+|---|---|
+[`docs/api-documentation.md`](docs/api-documentation.md) | All 48 endpoints, with auth, roles, examples, errors and lifecycle behaviour |
+[`docs/project-documentation.md`](docs/project-documentation.md) | PDF source: overview, architecture, data models, RBAC, API, setup, evidence, screenshots |
+[`docs/video-walkthrough.md`](docs/video-walkthrough.md) | Timed 4:30 narration script for the video deliverable |
+[`docs/screenshots/`](docs/screenshots/) | 12 screens captured from the running local application |
+[`DEPLOY.md`](DEPLOY.md) | Deployment walkthrough and troubleshooting |
+[`database/database-dump.sql`](database/database-dump.sql) | PostgreSQL dump with demo data; restore verified by `npm run verify:restore` |
 
 ---
 
