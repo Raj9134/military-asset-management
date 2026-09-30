@@ -27,19 +27,41 @@ app.set("trust proxy", 1);
 
 app.use(helmet());
 
-app.use(
-  cors({
-    origin(origin, callback) {
-      // Requests without an Origin header come from curl, Postman or a health
-      // check. Browsers always send one, so there is no CORS risk in allowing it.
-      if (!origin || env.corsOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-      return callback(new Error(`Origin ${origin} is not allowed`));
-    },
-    credentials: true,
-  })
-);
+// A rejected origin must produce a CORS refusal, not a thrown error.
+//
+// The previous version called back with `new Error(...)`. The cors package
+// passes that straight to Express as a failed middleware callback, so the
+// request fell through to the generic error handler and answered 500
+// INTERNAL_ERROR. Two things were wrong with that:
+//
+//   1. the status code. A cross-origin refusal is 403, and 500 tells the
+//      caller the server is broken when the server is working correctly.
+//   2. the body. The generic handler returned "An unexpected error occurred",
+//      so the browser got no explanation and no CORS headers to act on.
+//
+// Callback with `false` instead: cors omits the Access-Control-Allow-Origin
+// header, which is exactly what makes a browser refuse the response, and the
+// request continues to its route. Nothing sensitive is exposed, because the
+// browser will not let the calling page read a response that lacks the header.
+const corsOptions = {
+  origin(origin, callback) {
+    // Requests without an Origin header come from curl, Postman or a health
+    // check. Browsers always send one, so there is no CORS risk in allowing it.
+    if (!origin || env.corsOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(null, false);
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// Answer the browser's preflight itself, and do it before anything else can
+// reject the request. Without this, a cross-origin POST or DELETE is sent as an
+// OPTIONS probe that Express would 404, and the browser reports a CORS failure
+// even when the origin is perfectly acceptable.
+app.options(/.*/, cors(corsOptions));
 
 app.use(express.json({ limit: "1mb" }));
 app.use(morgan(env.isProduction ? "combined" : "dev"));
