@@ -11,6 +11,7 @@ services:
   - type: web
     name: mams-api
     runtime: node
+    rootDir: backend
     plan: free
     region: singapore
 
