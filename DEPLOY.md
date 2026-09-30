@@ -82,22 +82,31 @@ Applying migration `..._add_inventory_constraints`
 
 ### With the blueprint
 
-`render.yaml` defines the service. After `render blueprint launch`, set the three
-values marked `sync: false` in the Render dashboard:
+`render.yaml` defines the service. The dashboard reads the blueprint and creates
+both resources. One value is marked `sync: false`, so Render prompts for it:
 
 | Variable | Value |
 |---|---|
 | `CORS_ORIGIN` | `https://your-frontend.vercel.app` — **after** step 3 |
-| `ADMIN_EMAIL` | the administrator account you want |
-| `ADMIN_PASSWORD` | a strong password, at least 12 characters |
 
 `JWT_SECRET` and `JWT_REFRESH_SECRET` use `generateValue: true`, so Render
 creates strong random secrets. The API refuses to start in production if they are
 short or identical to each other.
 
+The blueprint also sets `initialDeployHook: npm run seed`, which runs once after
+the first successful deploy. That populates the three bases, four equipment
+types, opening balances and the six documented demo accounts, so the deployed
+system is usable immediately rather than empty.
+
 > `CORS_ORIGIN` has to wait for step 3, because it needs the real frontend URL.
 > Set it last and redeploy. The health endpoint works without it, so you can
 > verify the API first.
+
+> **Demo deploy versus production deploy.** The blueprint's `initialDeployHook`
+> runs the *demo* seed, which is what a reviewer signing in at a link needs. For
+> a real production deployment, remove the hook and create the single
+> administrator by hand using `seed:production` — see
+> [Create the first administrator](#create-the-first-administrator).
 
 ### Without the blueprint
 
@@ -108,19 +117,28 @@ Create a web service manually:
 | Root directory | `backend` |
 | Runtime | Node |
 | Build command | `npm ci && npm run prisma:generate` |
-| Pre-start command | `npx prisma migrate deploy` |
-| Start command | `node src/server.js` |
+| Start command | `npx prisma migrate deploy && node src/server.js` |
 | Health check path | `/api/health` |
 
 > **Why the full dependency tree is installed.** Prisma CLI is a
 > devDependency, and `migrate deploy` needs it. Pruning devDependencies with
-> `--omit=dev` removes the CLI before the pre-start command runs, so the deploy
+> `--omit=dev` removes the CLI before the start command runs, so the deploy
 > fails. Installing everything costs a larger image and is worth it for
 > reliability.
 >
-> **Why `preStartCommand` rather than `preDeployCommand`.** The latter requires
-> a paid plan. Migrating at start is slightly more work per boot but works on
-> the free tier, and it is idempotent.
+> **Why migrations are chained into the start command.** Render offers
+> `preDeployCommand`, but it is restricted to paid plans, and there is no
+> `preStartCommand` field at all — a blueprint containing one is rejected during
+> review, because the published schema sets `unevaluatedProperties` and refuses
+> keys it does not recognise. Chaining with `&&` runs the migration before the
+> server accepts traffic, works on the free tier, and is idempotent: with no
+> pending migrations `migrate deploy` exits immediately, so a restart or a
+> scale-up is safe.
+>
+> The file is validated against Render's published JSON schema at
+> `https://render.com/schema/render.yaml.json`, which is worth doing before any
+> blueprint review — the error Render shows is only "a Blueprint file was found,
+> but there was an issue", with no indication of which key is at fault.
 
 ### Environment variables
 
@@ -144,10 +162,12 @@ node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 
 ### Create the first administrator
 
-Do **not** run `npm run seed` in production. It creates six accounts with a
-shared demo password and sixty days of fabricated movements.
+Only needed for a production deployment. The blueprint's `initialDeployHook`
+already seeds the demo accounts for a review deployment.
 
-Use the production bootstrap instead:
+For production, do **not** run `npm run seed`. It creates six accounts with a
+shared demo password and sixty days of fabricated movements. Use the production
+bootstrap instead:
 
 ```bash
 cd backend
@@ -271,7 +291,9 @@ curl https://mams-api.onrender.com/api/health          # 200, database connected
 ```
 
 **Authentication**
-- Sign in with `ADMIN_EMAIL` / `ADMIN_PASSWORD` → dashboard loads
+- Sign in as `admin@mams.local` / `Passw0rd@2026` (the blueprint's deploy hook
+  seeds the demo accounts) — or with `ADMIN_EMAIL` / `ADMIN_PASSWORD` if you
+  bootstrapped production by hand
 - Wrong password → 401 with a generic message
 - Sign out → the session ends
 

@@ -1,12 +1,16 @@
 # Render blueprint for the MAMS API.
 #
-# Reproducible from a fresh checkout: `render blueprint launch` reads this file,
+# Reproducible from a fresh checkout: the Render dashboard reads this file,
 # creates the database and the web service, and wires them together.
 #
 # Every secret is supplied through Render's environment variable store. No
 # credential appears in this file, and nothing here bypasses migrations,
 # authentication, authorization or the inventory transaction layer.
-
+#
+# Validated against Render's published JSON schema
+# (https://render.com/schema/render.yaml.json). The schema sets
+# `unevaluatedProperties`, so a key Render does not recognise fails the whole
+# file rather than being ignored.
 services:
   - type: web
     name: mams-api
@@ -17,22 +21,32 @@ services:
 
     # Prisma CLI is a devDependency, so the full dependency tree is installed.
     # `migrate deploy` needs it, and pruning devDependencies would remove it
-    # before the pre-start command runs.
+    # before the start command runs.
     buildCommand: npm ci && npm run prisma:generate
-    startCommand: node src/server.js
 
-    # Runs on every start, before the server accepts traffic. `migrate deploy`
-    # is idempotent: with no pending migrations it exits immediately, so a
-    # restart or a scale-up is safe.
+    # Migrations run here rather than in `preDeployCommand`, which Render
+    # restricts to paid plans. `migrate deploy` is idempotent: with no pending
+    # migrations it exits immediately, so a restart or a scale-up is safe, and
+    # `&&` guarantees the server only starts once the schema is current.
     #
-    # preStartCommand is used rather than preDeployCommand because the latter
-    # requires a paid plan. Migrating at start is slightly more work but works
-    # on the free tier, which matters for a submission.
-    preStartCommand: npx prisma migrate deploy
+    # An earlier version of this file used `preStartCommand`. Render has no such
+    # field -- only `buildCommand`, `preDeployCommand` and `startCommand` -- so
+    # the blueprint was rejected at review.
+    startCommand: npx prisma migrate deploy && node src/server.js
+
+    # Runs once, after the first successful deploy, so the deployed system is
+    # not an empty shell: `seed` creates the bases, equipment types, the six
+    # demo accounts and the opening balances. It writes straight to the
+    # database and reads no environment variables.
+    #
+    # `seed:demo-activity` is deliberately NOT chained here. It drives the
+    # public API over HTTP against a hardcoded http://localhost:5000, and
+    # Render serves on $PORT (10000 by default), so it would fail. Run it
+    # manually against the deployed URL if movement history is wanted.
+    initialDeployHook: npm run seed
 
     healthCheckPath: /api/health
-    autoDeploy: true
-
+    autoDeployTrigger: commit
     envVars:
       - key: NODE_ENV
         value: production
@@ -55,17 +69,10 @@ services:
         value: 7d
 
       # Set this in the Render dashboard to the deployed frontend origin, for
-      # example https://mams.vercel.app. It is a secret rather than a value
-      # because only the real deployment URL is a valid value.
+      # example https://mams-frontend.vercel.app. It is left unsynced because
+      # only the real deployment URL is a valid value, and that URL does not
+      # exist until the frontend is deployed.
       - key: CORS_ORIGIN
-        sync: false
-
-      # Credentials for the first administrator, used only by
-      # `npm run seed:production`. Read from the environment, never committed.
-      - key: ADMIN_EMAIL
-        sync: false
-
-      - key: ADMIN_PASSWORD
         sync: false
 
 databases:
