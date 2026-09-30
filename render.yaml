@@ -36,18 +36,13 @@ services:
     # An earlier version of this file used `preStartCommand`. Render has no such
     # field -- only `buildCommand`, `preDeployCommand` and `startCommand` -- so
     # the blueprint was rejected at review.
-    startCommand: npx prisma migrate deploy && node src/server.js
-
-    # Runs once, after the first successful deploy, so the deployed system is
-    # not an empty shell: `seed` creates the bases, equipment types, the six
-    # demo accounts and the opening balances. It writes straight to the
-    # database and reads no environment variables.
     #
-    # `seed:demo-activity` is deliberately NOT chained here. It drives the
-    # public API over HTTP against a hardcoded http://localhost:5000, and
-    # Render serves on $PORT (10000 by default), so it would fail. Run it
-    # manually against the deployed URL if movement history is wanted.
-    initialDeployHook: npm run seed
+    # The bootstrap step seeds the demo data, but only when the database has no
+    # users. Render's interactive Shell is a paid feature, so on the free tier
+    # the start command is the only place this can happen; gating on an empty
+    # database keeps the truncating seed from wiping a reviewer's work on every
+    # cold start. A free service restarts often, so this runs many times.
+    startCommand: npx prisma migrate deploy && node scripts/bootstrap.js && node src/server.js
 
     healthCheckPath: /api/health
     autoDeployTrigger: commit

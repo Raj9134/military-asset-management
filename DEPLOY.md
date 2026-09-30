@@ -102,10 +102,34 @@ system is usable immediately rather than empty.
 > Set it last and redeploy. The health endpoint works without it, so you can
 > verify the API first.
 
-> **Demo deploy versus production deploy.** The blueprint's `initialDeployHook`
-> runs the *demo* seed, which is what a reviewer signing in at a link needs. For
-> a real production deployment, remove the hook and create the single
-> administrator by hand using `seed:production` — see
+The service's start command runs the migrations and then
+`scripts/bootstrap.js`, which seeds the demo data **only if the database has no
+users**. That gives a usable system on first boot without any manual step, which
+matters on the free tier where Render's interactive Shell is a paid feature and
+is therefore unavailable.
+
+Bootstrapping is idempotent by design. A free service is stopped and restarted
+constantly, and the demo seed truncates audit logs, assignments, expenditures
+and refresh tokens before reinserting, so it must not run unconditionally. The
+user-count check means the first boot populates the data and every later boot is
+a no-op:
+
+```
+Bootstrap: database has no users, seeding demo data...
+Bootstrap: demo data seeded.
+
+# on every subsequent cold start
+Bootstrap: skipped, 6 user(s) already present.
+```
+
+If the seed fails the service still starts, and the deploy log carries the real
+error — the alternative would be a crash loop with the cause buried.
+
+> **Demo deploy versus production deploy.** The bootstrap runs the *demo* seed,
+> which is what a reviewer signing in at a link needs. For a real production
+> deployment, replace `node scripts/bootstrap.js` in the start command with
+> `npm run seed:production` and supply `ADMIN_EMAIL` and `ADMIN_PASSWORD` as
+> environment variables — see
 > [Create the first administrator](#create-the-first-administrator).
 
 ### Without the blueprint
@@ -195,8 +219,10 @@ came from a user action.
 
 It is idempotent and will not reset an existing administrator's password.
 
-> On Render you can run this from the dashboard's shell, or locally against the
-> hosted `DATABASE_URL`.
+> On Render, set `ADMIN_EMAIL` and `ADMIN_PASSWORD` as environment variables
+> and run `npm run seed:production` as a one-off deploy command, or locally
+> against the hosted `DATABASE_URL`. The free tier has no interactive shell, so
+> the dashboard's shell is not an option there.
 
 ### Verify
 
