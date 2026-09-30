@@ -201,7 +201,7 @@ It is idempotent and will not reset an existing administrator's password.
 ### Verify
 
 ```bash
-curl https://mams-api.onrender.com/api/health
+curl https://mams-asset-api.onrender.com/api/health
 ```
 
 ```json
@@ -240,7 +240,7 @@ Or import the repository and set:
 Add one environment variable:
 
 ```
-VITE_API_URL=https://mams-api.onrender.com/api
+VITE_API_URL=https://mams-asset-api.onrender.com/api
 ```
 
 `vercel.json` is committed and handles the rest: the SPA rewrite, immutable
@@ -287,7 +287,7 @@ against the live URLs.
 
 **Health**
 ```bash
-curl https://mams-api.onrender.com/api/health          # 200, database connected
+curl https://mams-asset-api.onrender.com/api/health          # 200, database connected
 ```
 
 **Authentication**

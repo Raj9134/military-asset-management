@@ -437,7 +437,7 @@ identical. `.env` is gitignored; `.env.example` is committed.
 
 | Variable | Purpose |
 |---|---|
-| `VITE_API_URL` | API base URL, e.g. `https://mams-api.onrender.com/api` |
+| `VITE_API_URL` | API base URL, e.g. `https://mams-asset-api.onrender.com/api` |
 
 Only `VITE_`-prefixed variables reach the browser, so no secret can be placed
 here. The value is baked in at **build** time.

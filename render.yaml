@@ -13,7 +13,11 @@
 # file rather than being ignored.
 services:
   - type: web
-    name: mams-api
+    # Must be unique within the Render workspace. Render's Blueprint spec says
+    # that naming an *existing* service makes the Blueprint adopt and reconfigure
+    # it rather than create a new one, so a name collision silently deploys into
+    # a different application instead of failing loudly.
+    name: mams-asset-api
     runtime: node
     rootDir: backend
     plan: free
