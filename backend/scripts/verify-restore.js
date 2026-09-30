@@ -108,19 +108,57 @@ async function main() {
   if (Number(fks) === 0) failures.push("no foreign keys restored");
 
   // Prove the restored copy is actually protected, rather than assuming the
-  // constraints were present in the file.
+  // constraints were merely present in the file.
+  //
+  // This deliberately does not accept "an error happened" as proof. A syntax
+  // error, a missing table or a permission problem would all raise an error too,
+  // and treating any of those as success would make this a vacuous check that
+  // passes for the wrong reason. It requires all three of:
+  //
+  //   1. the INSERT reached PostgreSQL and was rejected
+  //   2. PostgreSQL reported a CHECK constraint violation (SQLSTATE 23514)
+  //   3. the violation names the constraint this probe is meant to exercise
   console.log("\nBehavioural check on the restored copy:");
+
+  const EXPECTED_CONSTRAINT = "transfers_bases_must_differ";
+
+  let insertError = null;
   try {
     await psql(
-      `INSERT INTO transfers (referenceNumber, sourceBaseId, destinationBaseId, equipmentTypeId, quantity, status, initiatedById)
-       SELECT 'RC-SAME', b.id, b.id, e.id, 1, 'PENDING', u.id
+      `INSERT INTO transfers ("referenceNumber", "sourceBaseId", "destinationBaseId", "equipmentTypeId", quantity, status, "initiatedById", "updatedAt")
+       SELECT 'RC-SAME', b.id, b.id, e.id, 1, 'PENDING', u.id, NOW()
        FROM bases b, equipment_types e, users u LIMIT 1;`,
       SCRATCH_DB
     );
+  } catch (error) {
+    insertError = error;
+  }
+
+  if (!insertError) {
+    // The insert was accepted, so the restored database is not protected.
     failures.push("restored database ACCEPTED a transfer with identical source and destination");
     console.log("  FAIL  same-base transfer was accepted");
-  } catch {
-    console.log("  PASS  same-base transfer rejected by the restored constraint");
+  } else {
+    const message = insertError.message || "";
+
+    // 23514 is check_violation. Anything else is a different fault and must not
+    // be allowed to masquerade as the constraint working.
+    const isCheckViolation = message.includes("23514") || message.includes("violates check constraint");
+    const namedTheConstraint = message.includes(EXPECTED_CONSTRAINT);
+
+    if (isCheckViolation && namedTheConstraint) {
+      console.log(`  PASS  same-base transfer rejected by ${EXPECTED_CONSTRAINT}`);
+    } else if (!isCheckViolation) {
+      failures.push(
+        `same-base transfer failed for an unrelated reason, not a CHECK constraint: ${message.split("\n")[0]}`
+      );
+      console.log("  FAIL  rejected by something other than a CHECK constraint");
+    } else {
+      failures.push(
+        `a CHECK constraint fired but not ${EXPECTED_CONSTRAINT}: ${message.split("\n")[0]}`
+      );
+      console.log("  FAIL  rejected by a different CHECK constraint");
+    }
   }
 
   console.log("");
