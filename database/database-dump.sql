@@ -813,33 +813,29 @@ fe3703ed-9a8e-472d-9cdc-3c4fab3e9969	c69fb2514167b0932a388b30deb8f4606137a31fd17
 --
 
 COPY public.assets (id, "assetNumber", "serialNumber", "equipmentTypeId", "currentBaseId", status, "purchaseId", notes, "createdAt", "updatedAt") FROM stdin;
-343	ALPHA-PATROL_VEH-001	SNALPHAPATR001	65	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.221	2026-09-29 23:38:20.221
-344	ALPHA-PATROL_VEH-002	SNALPHAPATR002	65	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.223	2026-09-29 23:38:20.223
-345	ALPHA-PATROL_VEH-003	SNALPHAPATR003	65	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.224	2026-09-29 23:38:20.224
-346	ALPHA-ASSAULT_RIFLE-001	SNALPHAASSA001	66	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.226	2026-09-29 23:38:20.226
-347	ALPHA-ASSAULT_RIFLE-002	SNALPHAASSA002	66	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.227	2026-09-29 23:38:20.227
-348	ALPHA-ASSAULT_RIFLE-003	SNALPHAASSA003	66	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.229	2026-09-29 23:38:20.229
-349	ALPHA-RADIO_SET-001	SNALPHARADI001	68	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.23	2026-09-29 23:38:20.23
-350	ALPHA-RADIO_SET-002	SNALPHARADI002	68	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.231	2026-09-29 23:38:20.231
-351	ALPHA-RADIO_SET-003	SNALPHARADI003	68	49	IN_STOCK	\N	\N	2026-09-29 23:38:20.232	2026-09-29 23:38:20.232
-352	BRAVO-PATROL_VEH-001	SNBRAVOPATR001	65	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.235	2026-09-29 23:38:20.235
-353	BRAVO-PATROL_VEH-002	SNBRAVOPATR002	65	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.236	2026-09-29 23:38:20.236
-354	BRAVO-PATROL_VEH-003	SNBRAVOPATR003	65	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.237	2026-09-29 23:38:20.237
-355	BRAVO-ASSAULT_RIFLE-001	SNBRAVOASSA001	66	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.239	2026-09-29 23:38:20.239
-356	BRAVO-ASSAULT_RIFLE-002	SNBRAVOASSA002	66	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.24	2026-09-29 23:38:20.24
-357	BRAVO-ASSAULT_RIFLE-003	SNBRAVOASSA003	66	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.242	2026-09-29 23:38:20.242
-358	BRAVO-RADIO_SET-001	SNBRAVORADI001	68	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.243	2026-09-29 23:38:20.243
-359	BRAVO-RADIO_SET-002	SNBRAVORADI002	68	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.244	2026-09-29 23:38:20.244
-360	BRAVO-RADIO_SET-003	SNBRAVORADI003	68	50	IN_STOCK	\N	\N	2026-09-29 23:38:20.245	2026-09-29 23:38:20.245
-361	CHARLIE-PATROL_VEH-001	SNCHARLIEPATR001	65	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.247	2026-09-29 23:38:20.247
-362	CHARLIE-PATROL_VEH-002	SNCHARLIEPATR002	65	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.249	2026-09-29 23:38:20.249
-363	CHARLIE-PATROL_VEH-003	SNCHARLIEPATR003	65	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.25	2026-09-29 23:38:20.25
-364	CHARLIE-ASSAULT_RIFLE-001	SNCHARLIEASSA001	66	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.251	2026-09-29 23:38:20.251
-365	CHARLIE-ASSAULT_RIFLE-002	SNCHARLIEASSA002	66	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.252	2026-09-29 23:38:20.252
-366	CHARLIE-ASSAULT_RIFLE-003	SNCHARLIEASSA003	66	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.253	2026-09-29 23:38:20.253
-367	CHARLIE-RADIO_SET-001	SNCHARLIERADI001	68	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.254	2026-09-29 23:38:20.254
-368	CHARLIE-RADIO_SET-002	SNCHARLIERADI002	68	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.256	2026-09-29 23:38:20.256
-369	CHARLIE-RADIO_SET-003	SNCHARLIERADI003	68	51	IN_STOCK	\N	\N	2026-09-29 23:38:20.257	2026-09-29 23:38:20.257
+397	ALPHA-PATROL_VEH-001	SNALPHAPATR001	73	55	IN_STOCK	\N	\N	2026-09-30 00:59:01.228	2026-09-30 00:59:01.228
+398	ALPHA-PATROL_VEH-002	SNALPHAPATR002	73	55	IN_STOCK	\N	\N	2026-09-30 00:59:01.231	2026-09-30 00:59:01.231
+399	ALPHA-PATROL_VEH-003	SNALPHAPATR003	73	55	IN_STOCK	\N	\N	2026-09-30 00:59:01.233	2026-09-30 00:59:01.233
+400	ALPHA-ASSAULT_RIFLE-001	SNALPHAASSA001	74	55	IN_STOCK	\N	\N	2026-09-30 00:59:01.234	2026-09-30 00:59:01.234
+401	ALPHA-ASSAULT_RIFLE-002	SNALPHAASSA002	74	55	IN_STOCK	\N	\N	2026-09-30 00:59:01.236	2026-09-30 00:59:01.236
+402	ALPHA-ASSAULT_RIFLE-003	SNALPHAASSA003	74	55	IN_STOCK	\N	\N	2026-09-30 00:59:01.237	2026-09-30 00:59:01.237
+403	BRAVO-PATROL_VEH-001	SNBRAVOPATR001	73	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.239	2026-09-30 00:59:01.239
+404	BRAVO-PATROL_VEH-002	SNBRAVOPATR002	73	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.24	2026-09-30 00:59:01.24
+405	BRAVO-PATROL_VEH-003	SNBRAVOPATR003	73	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.241	2026-09-30 00:59:01.241
+406	BRAVO-ASSAULT_RIFLE-001	SNBRAVOASSA001	74	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.242	2026-09-30 00:59:01.242
+407	BRAVO-ASSAULT_RIFLE-002	SNBRAVOASSA002	74	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.244	2026-09-30 00:59:01.244
+408	BRAVO-ASSAULT_RIFLE-003	SNBRAVOASSA003	74	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.245	2026-09-30 00:59:01.245
+409	BRAVO-RADIO_SET-001	SNBRAVORADI001	76	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.246	2026-09-30 00:59:01.246
+410	BRAVO-RADIO_SET-002	SNBRAVORADI002	76	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.248	2026-09-30 00:59:01.248
+411	BRAVO-RADIO_SET-003	SNBRAVORADI003	76	56	IN_STOCK	\N	\N	2026-09-30 00:59:01.249	2026-09-30 00:59:01.249
+412	CHARLIE-PATROL_VEH-001	SNCHARLIEPATR001	73	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.252	2026-09-30 00:59:01.252
+413	CHARLIE-PATROL_VEH-002	SNCHARLIEPATR002	73	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.253	2026-09-30 00:59:01.253
+414	CHARLIE-ASSAULT_RIFLE-001	SNCHARLIEASSA001	74	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.254	2026-09-30 00:59:01.254
+415	CHARLIE-ASSAULT_RIFLE-002	SNCHARLIEASSA002	74	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.255	2026-09-30 00:59:01.255
+416	CHARLIE-ASSAULT_RIFLE-003	SNCHARLIEASSA003	74	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.256	2026-09-30 00:59:01.256
+417	CHARLIE-RADIO_SET-001	SNCHARLIERADI001	76	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.257	2026-09-30 00:59:01.257
+418	CHARLIE-RADIO_SET-002	SNCHARLIERADI002	76	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.259	2026-09-30 00:59:01.259
+419	CHARLIE-RADIO_SET-003	SNCHARLIERADI003	76	57	IN_STOCK	\N	\N	2026-09-30 00:59:01.26	2026-09-30 00:59:01.26
 \.
 
 
@@ -848,32 +844,40 @@ COPY public.assets (id, "assetNumber", "serialNumber", "equipmentTypeId", "curre
 --
 
 COPY public.assignments (id, "referenceNumber", "baseId", "equipmentTypeId", "assetId", "personnelName", "personnelId", designation, quantity, "returnedQuantity", "assignmentDate", status, "assignedById", notes, "createdAt", "updatedAt") FROM stdin;
-471	ASN-2026-0013	51	67	\N	Sgt. Imran Sheikh	SV-4523	Explosive Ordnance Disposal	20	0	2026-08-28	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.175	2026-09-29 23:38:20.175
-459	ASN-2026-0001	49	67	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	20	20	2026-08-04	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.164	2026-09-29 23:38:20.164
-460	ASN-2026-0002	49	68	\N	Cpl. Aditya Kumar	SV-4560	Driver	20	0	2026-08-06	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.165	2026-09-29 23:38:20.165
-461	ASN-2026-0003	50	67	\N	Lt. Karthik Menon	SV-4530	Signals Officer	16	16	2026-08-08	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.166	2026-09-29 23:38:20.166
-462	ASN-2026-0004	50	66	\N	Cpl. Rohan Das	SV-4544	Machine Gunner	16	16	2026-08-10	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.167	2026-09-29 23:38:20.167
-463	ASN-2026-0005	50	68	\N	Lt. Meera Joshi	SV-4482	Weapons Officer	8	8	2026-08-12	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.168	2026-09-29 23:38:20.168
-464	ASN-2026-0006	50	67	\N	Cpl. Aditya Kumar	SV-4560	Driver	12	12	2026-08-14	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.169	2026-09-29 23:38:20.169
-465	ASN-2026-0007	49	66	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	20	0	2026-08-16	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.17	2026-09-29 23:38:20.17
-466	ASN-2026-0008	51	67	\N	Sgt. Vikram Rathore	SV-4501	Quartermaster	4	0	2026-08-18	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.171	2026-09-29 23:38:20.171
-467	ASN-2026-0009	51	66	\N	Sgt. Priya Nair	SV-4552	Stores Clerk	8	8	2026-08-20	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.172	2026-09-29 23:38:20.172
-468	ASN-2026-0010	49	67	\N	Sgt. Vikram Rathore	SV-4501	Quartermaster	4	4	2026-08-22	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.173	2026-09-29 23:38:20.173
-469	ASN-2026-0011	49	66	\N	Lt. Sneha Patil	SV-4571	Platoon Commander	16	0	2026-08-24	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.174	2026-09-29 23:38:20.174
-470	ASN-2026-0012	51	66	\N	Sgt. Priya Nair	SV-4552	Stores Clerk	20	20	2026-08-26	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.174	2026-09-29 23:38:20.174
-472	ASN-2026-0014	51	66	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	8	0	2026-08-30	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.176	2026-09-29 23:38:20.176
-473	ASN-2026-0015	50	67	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	20	0	2026-09-01	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.177	2026-09-29 23:38:20.177
-474	ASN-2026-0016	50	67	\N	Lt. Sneha Patil	SV-4571	Platoon Commander	20	0	2026-09-07	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.178	2026-09-29 23:38:20.178
-475	ASN-2026-0017	51	66	\N	Lt. Karthik Menon	SV-4530	Signals Officer	20	0	2026-09-09	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.179	2026-09-29 23:38:20.179
-476	ASN-2026-0018	50	66	\N	Sgt. Vikram Rathore	SV-4501	Quartermaster	4	4	2026-09-11	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.179	2026-09-29 23:38:20.179
-477	ASN-2026-0019	50	68	\N	Lt. Sneha Patil	SV-4571	Platoon Commander	12	0	2026-09-13	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.18	2026-09-29 23:38:20.18
-478	ASN-2026-0020	50	68	\N	Cpl. Fatima Ansari	SV-4590	Rifleman	4	0	2026-09-15	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.181	2026-09-29 23:38:20.181
-479	ASN-2026-0021	49	68	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	8	0	2026-09-17	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.181	2026-09-29 23:38:20.181
-480	ASN-2026-0022	50	66	\N	Cpl. Fatima Ansari	SV-4590	Rifleman	8	8	2026-09-19	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.182	2026-09-29 23:38:20.182
-481	ASN-2026-0023	51	68	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	12	0	2026-09-23	ACTIVE	97	Issued for operational duty.	2026-09-29 23:38:20.183	2026-09-29 23:38:20.183
-482	ASN-2026-0024	51	68	\N	Lt. Sneha Patil	SV-4571	Platoon Commander	8	8	2026-09-25	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.184	2026-09-29 23:38:20.184
-483	ASN-2026-0025	49	66	\N	Cpl. Aditya Kumar	SV-4560	Driver	4	4	2026-09-27	RETURNED	97	Equipment returned to stores.	2026-09-29 23:38:20.184	2026-09-29 23:38:20.184
-484	ASN-2026-0484	49	66	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	30	20	2026-09-20	PARTIALLY_RETURNED	98	Consumed in the field. | Returned to stores after the serial.	2026-09-29 23:38:25.906	2026-09-29 23:38:25.95
+508	ASN-2026-0001	57	75	\N	Lt. Karthik Menon	SV-4530	Signals Officer	16	0	2026-08-04	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.173	2026-09-30 00:59:01.173
+509	ASN-2026-0002	57	74	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	12	0	2026-08-06	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.175	2026-09-30 00:59:01.175
+510	ASN-2026-0003	56	76	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	8	8	2026-08-08	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.176	2026-09-30 00:59:01.176
+511	ASN-2026-0004	56	73	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	4	4	2026-08-10	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.177	2026-09-30 00:59:01.177
+512	ASN-2026-0005	56	75	\N	Lt. Karthik Menon	SV-4530	Signals Officer	4	0	2026-08-12	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.178	2026-09-30 00:59:01.178
+513	ASN-2026-0006	57	75	\N	Lt. Sneha Patil	SV-4571	Platoon Commander	20	0	2026-08-14	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.179	2026-09-30 00:59:01.179
+514	ASN-2026-0007	57	75	\N	Cpl. Fatima Ansari	SV-4590	Rifleman	8	0	2026-08-16	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.179	2026-09-30 00:59:01.179
+515	ASN-2026-0008	57	75	\N	Sgt. Imran Sheikh	SV-4523	Explosive Ordnance Disposal	20	20	2026-08-18	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.18	2026-09-30 00:59:01.18
+516	ASN-2026-0009	57	75	\N	Cpl. Rohan Das	SV-4544	Machine Gunner	16	16	2026-08-20	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.181	2026-09-30 00:59:01.181
+517	ASN-2026-0010	56	74	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	12	12	2026-08-22	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.182	2026-09-30 00:59:01.182
+518	ASN-2026-0011	55	75	\N	Cpl. Aditya Kumar	SV-4560	Driver	20	20	2026-08-24	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.183	2026-09-30 00:59:01.183
+519	ASN-2026-0012	56	74	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	8	0	2026-08-26	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.184	2026-09-30 00:59:01.184
+520	ASN-2026-0013	55	75	\N	Cpl. Rohan Das	SV-4544	Machine Gunner	16	0	2026-08-28	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.185	2026-09-30 00:59:01.185
+521	ASN-2026-0014	56	73	\N	Lt. Meera Joshi	SV-4482	Weapons Officer	16	16	2026-08-30	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.185	2026-09-30 00:59:01.185
+522	ASN-2026-0015	56	75	\N	Lt. Meera Joshi	SV-4482	Weapons Officer	12	0	2026-09-01	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.186	2026-09-30 00:59:01.186
+523	ASN-2026-0016	57	75	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	20	0	2026-09-03	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.187	2026-09-30 00:59:01.187
+524	ASN-2026-0017	57	74	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	8	8	2026-09-05	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.188	2026-09-30 00:59:01.188
+525	ASN-2026-0018	57	76	\N	Cpl. Neha Singh	SV-4516	Vehicle Crew Chief	16	16	2026-09-07	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.188	2026-09-30 00:59:01.188
+526	ASN-2026-0019	55	74	\N	Sgt. Priya Nair	SV-4552	Stores Clerk	8	0	2026-09-09	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.189	2026-09-30 00:59:01.189
+527	ASN-2026-0020	56	74	\N	Cpl. Rohan Das	SV-4544	Machine Gunner	8	8	2026-09-11	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.19	2026-09-30 00:59:01.19
+528	ASN-2026-0021	55	74	\N	Sgt. Priya Nair	SV-4552	Stores Clerk	8	0	2026-09-13	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.191	2026-09-30 00:59:01.191
+529	ASN-2026-0022	56	73	\N	Cpl. Rohan Das	SV-4544	Machine Gunner	20	20	2026-09-17	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.191	2026-09-30 00:59:01.191
+530	ASN-2026-0023	56	76	\N	Sgt. Imran Sheikh	SV-4523	Explosive Ordnance Disposal	16	0	2026-09-21	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.192	2026-09-30 00:59:01.192
+531	ASN-2026-0024	55	75	\N	Lt. Sneha Patil	SV-4571	Platoon Commander	16	16	2026-09-23	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.193	2026-09-30 00:59:01.193
+532	ASN-2026-0025	56	74	\N	Cpl. Aditya Kumar	SV-4560	Driver	8	8	2026-09-25	RETURNED	109	Equipment returned to stores.	2026-09-30 00:59:01.193	2026-09-30 00:59:01.193
+533	ASN-2026-0026	55	74	\N	Sgt. Manish Gupta	SV-4583	Motor Pool NCO	8	0	2026-09-27	ACTIVE	109	Issued for operational duty.	2026-09-30 00:59:01.194	2026-09-30 00:59:01.194
+534	ASN-2026-0534	55	74	\N	Test Personnel	SV-9999	\N	8	0	2026-09-30	ACTIVE	110	\N	2026-09-30 00:59:07.523	2026-09-30 00:59:07.526
+535	ASN-2026-0535	55	74	\N	Return Test	\N	\N	5	5	2026-09-30	RETURNED	110	\N	2026-09-30 00:59:07.57	2026-09-30 00:59:07.587
+536	ASN-2026-0536	55	74	\N	Partial Return Test	\N	\N	10	4	2026-09-30	PARTIALLY_RETURNED	110	\N	2026-09-30 00:59:07.601	2026-09-30 00:59:07.616
+537	ASN-2026-0537	55	74	\N	Over Return Test	\N	\N	3	0	2026-09-30	ACTIVE	110	\N	2026-09-30 00:59:07.629	2026-09-30 00:59:07.629
+538	ASN-2026-0538	55	74	\N	Training Candidate	\N	\N	12	5	2026-09-30	PARTIALLY_RETURNED	110	Consumed in the field.	2026-09-30 00:59:08.335	2026-09-30 00:59:08.358
+539	ASN-2026-0539	55	74	\N	Everything Test	\N	\N	413	2	2026-09-30	PARTIALLY_RETURNED	110	Consumed in the field.	2026-09-30 00:59:08.374	2026-09-30 00:59:08.41
+540	ASN-2026-0540	55	74	\N	Cross Check Test	\N	\N	2	0	2026-09-30	ACTIVE	110	\N	2026-09-30 00:59:08.449	2026-09-30 00:59:08.451
+543	ASN-2026-0543	55	74	\N	Capt. Arjun Rathore	SV-4471	Platoon Commander	30	20	2026-09-21	PARTIALLY_RETURNED	110	Consumed in the field. | Returned to stores after the serial.	2026-09-30 00:59:47.436	2026-09-30 00:59:47.48
 \.
 
 
@@ -882,28 +886,93 @@ COPY public.assignments (id, "referenceNumber", "baseId", "equipmentTypeId", "as
 --
 
 COPY public.audit_logs (id, "userId", "userEmail", action, "entityType", "entityId", method, endpoint, "ipAddress", "userAgent", "statusCode", "requestId", metadata, "createdAt") FROM stdin;
-745	97	admin@mams.local	USER_CREATED	User	1	POST	/api/users	127.0.0.1	seed-script	201	seed-1790725100258-1	{"seeded": true, "description": "Base commander account provisioned"}	2026-08-01 00:38:19.753
-746	97	admin@mams.local	BASE_CREATED	Base	2	POST	/api/bases	127.0.0.1	seed-script	201	seed-1790725100259-2	{"seeded": true, "description": "Bravo Base registered"}	2026-08-01 01:38:19.753
-747	97	admin@mams.local	EQUIPMENT_CREATED	EquipmentType	3	POST	/api/equipmenttypes	127.0.0.1	seed-script	201	seed-1790725100260-3	{"seeded": true, "description": "Ammunition type configured"}	2026-08-01 02:38:19.753
-766	97	admin@mams.local	PURCHASE_REVERSED	Purchase	366	POST	/api/purchases/366/reverse	::1	node	\N	73c486a9-e3df-42a6-9536-9ca561e62594	{"baseId": 50, "reason": "Duplicate of order HL-2291, raised twice by the depot.", "quantity": 25, "equipmentTypeId": 66, "originalReference": "PUR-2026-0366", "reversalReference": "PUR-2026-0367"}	2026-09-29 23:38:25.971
-748	97	admin@mams.local	LOGIN	User	97	POST	/api/auth/login	::1	node	\N	88267d13-e35e-40d9-a47b-be240d5b30f5	\N	2026-09-29 23:38:24.738
-749	98	commander.alpha@mams.local	LOGIN	User	98	POST	/api/auth/login	::1	node	\N	628cb624-0cab-4335-a557-b89734c77602	\N	2026-09-29 23:38:24.991
-750	101	logistics.alpha@mams.local	LOGIN	User	101	POST	/api/auth/login	::1	node	\N	3254be03-b921-4b39-9ac3-d3743fd4bcae	\N	2026-09-29 23:38:25.242
-751	102	logistics.charlie@mams.local	LOGIN	User	102	POST	/api/auth/login	::1	node	\N	3d14068d-238e-4ca9-bb67-a23f6b4e3827	\N	2026-09-29 23:38:25.49
-752	99	commander.bravo@mams.local	LOGIN	User	99	POST	/api/auth/login	::1	node	\N	23d90e2c-02dc-412a-b5f6-7478b7d86b56	\N	2026-09-29 23:38:25.737
-753	101	logistics.alpha@mams.local	PURCHASE_CREATED	Purchase	362	POST	/api/purchases	::1	node	\N	f9b3d2c0-5d51-4ac5-b70e-7edb28ffc664	{"baseId": 49, "quantity": 24000, "supplier": "Northwind Defence Supplies", "equipmentTypeId": 67, "referenceNumber": "PUR-2026-0362"}	2026-09-29 23:38:25.766
-754	102	logistics.charlie@mams.local	PURCHASE_CREATED	Purchase	363	POST	/api/purchases	::1	node	\N	faa05a13-c5f9-470f-9586-e54ce9c8f55d	{"baseId": 51, "quantity": 40000, "supplier": "Northwind Defence Supplies", "equipmentTypeId": 67, "referenceNumber": "PUR-2026-0363"}	2026-09-29 23:38:25.778
-755	97	admin@mams.local	PURCHASE_CREATED	Purchase	364	POST	/api/purchases	::1	node	\N	109aad27-aaf7-430e-baea-2a59b4a0a384	{"baseId": 50, "quantity": 16000, "supplier": "Northwind Defence Supplies", "equipmentTypeId": 67, "referenceNumber": "PUR-2026-0364"}	2026-09-29 23:38:25.789
-756	101	logistics.alpha@mams.local	PURCHASE_CREATED	Purchase	365	POST	/api/purchases	::1	node	\N	335f5e65-9fbd-4bb5-99d6-838a0234dee9	{"baseId": 49, "quantity": 120, "supplier": "Meridian Ordnance Corporation", "equipmentTypeId": 66, "referenceNumber": "PUR-2026-0365"}	2026-09-29 23:38:25.803
-760	102	logistics.charlie@mams.local	TRANSFER_CREATED	Transfer	675	POST	/api/transfers	::1	node	\N	d3edb591-4fb8-4888-9232-8719357de1c8	{"quantity": 12000, "sourceBaseId": 51, "equipmentTypeId": 67, "referenceNumber": "TRF-2026-0675", "destinationBaseId": 49}	2026-09-29 23:38:25.895
-761	98	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	484	POST	/api/assignments	::1	node	\N	300662ac-b107-4af0-9aea-8dd4e783691a	{"baseId": 49, "assetId": null, "quantity": 30, "personnelName": "Capt. Arjun Rathore", "equipmentTypeId": 66, "referenceNumber": "ASN-2026-0484"}	2026-09-29 23:38:25.912
-762	98	commander.alpha@mams.local	EXPENDITURE_CREATED	Expenditure	463	POST	/api/expenditures	::1	node	\N	be8fa8cf-caac-4a58-a78b-1b4470a02a0c	{"baseId": 49, "reason": "TRAINING", "quantity": 8, "assignmentId": 484, "equipmentTypeId": 66, "referenceNumber": "EXP-2026-0463"}	2026-09-29 23:38:25.93
-763	98	commander.alpha@mams.local	EXPENDITURE_CREATED	Expenditure	464	POST	/api/expenditures	::1	node	\N	ebaab67e-07ca-4e0a-9fe6-9ab8086797a0	{"baseId": 49, "reason": "DAMAGE", "quantity": 5, "assignmentId": null, "equipmentTypeId": 66, "referenceNumber": "EXP-2026-0464"}	2026-09-29 23:38:25.942
-764	98	commander.alpha@mams.local	ASSIGNMENT_RETURNED	Assignment	484	POST	/api/assignments/484/return	::1	node	\N	737f2ad2-ca35-4916-8c43-0668082ef9c8	{"status": "PARTIALLY_RETURNED", "referenceNumber": "ASN-2026-0484", "returnedQuantity": 12, "outstandingBefore": 22}	2026-09-29 23:38:25.951
-765	97	admin@mams.local	PURCHASE_CREATED	Purchase	366	POST	/api/purchases	::1	node	\N	181fbcd4-bc92-4dca-bc5f-17ab96065906	{"baseId": 50, "quantity": 25, "supplier": "Halcyon Logistics", "equipmentTypeId": 66, "referenceNumber": "PUR-2026-0366"}	2026-09-29 23:38:25.96
-757	101	logistics.alpha@mams.local	TRANSFER_CREATED	Transfer	674	POST	/api/transfers	::1	node	\N	b48780da-ef72-4e86-b173-d5cdbcc99783	{"quantity": 40, "sourceBaseId": 49, "equipmentTypeId": 66, "referenceNumber": "TRF-2026-0674", "destinationBaseId": 50}	2026-09-29 23:38:25.855
-758	98	commander.alpha@mams.local	TRANSFER_APPROVED	Transfer	674	POST	/api/transfers/674/approve	::1	node	\N	d582457f-5be4-4cdf-b6a5-21dc1f69c844	{"decidedBy": "commander.alpha@mams.local", "referenceNumber": "TRF-2026-0674"}	2026-09-29 23:38:25.867
-759	99	commander.bravo@mams.local	TRANSFER_COMPLETED	Transfer	674	POST	/api/transfers/674/complete	::1	node	\N	e8a25504-af3e-441b-93fc-06741297410c	{"quantity": 40, "sourceBaseId": 49, "equipmentTypeId": 66, "referenceNumber": "TRF-2026-0674", "destinationBaseId": 50}	2026-09-29 23:38:25.88
+781	109	admin@mams.local	USER_CREATED	User	1	POST	/api/users	127.0.0.1	seed-script	201	seed-1790729941260-1	{"seeded": true, "description": "Base commander account provisioned"}	2026-08-01 01:58:59.494
+782	109	admin@mams.local	BASE_CREATED	Base	2	POST	/api/bases	127.0.0.1	seed-script	201	seed-1790729941262-2	{"seeded": true, "description": "Bravo Base registered"}	2026-08-01 02:58:59.494
+783	109	admin@mams.local	EQUIPMENT_CREATED	EquipmentType	3	POST	/api/equipmenttypes	127.0.0.1	seed-script	201	seed-1790729941263-3	{"seeded": true, "description": "Ammunition type configured"}	2026-08-01 03:58:59.494
+793	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	09728fae-1292-426d-857b-f2bb3aa2a10b	\N	2026-09-30 00:59:05.059
+807	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	efaa22ff-09c3-4bf0-9931-3371a819dda4	\N	2026-09-30 00:59:08.043
+808	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	619cd140-a855-46ad-a6a3-e3cb97e71ddf	\N	2026-09-30 00:59:08.292
+809	110	commander.alpha@mams.local	EXPENDITURE_CREATED	Expenditure	518	POST	/api/expenditures	::ffff:127.0.0.1	\N	\N	837d5d17-a7e3-4a19-807a-cf282f7d4b98	{"baseId": 55, "reason": "DAMAGE", "quantity": 6, "assignmentId": null, "equipmentTypeId": 74, "referenceNumber": "EXP-2026-0518"}	2026-09-30 00:59:08.321
+810	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	538	POST	/api/assignments	::ffff:127.0.0.1	\N	\N	56f7d97b-1ae8-4a54-941c-2959a2e72917	{"baseId": 55, "assetId": null, "quantity": 12, "personnelName": "Training Candidate", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0538"}	2026-09-30 00:59:08.341
+811	110	commander.alpha@mams.local	EXPENDITURE_CREATED	Expenditure	519	POST	/api/expenditures	::ffff:127.0.0.1	\N	\N	1f163e0b-81f1-4902-a274-6ad5ecc33a12	{"baseId": 55, "reason": "TRAINING", "quantity": 5, "assignmentId": 538, "equipmentTypeId": 74, "referenceNumber": "EXP-2026-0519"}	2026-09-30 00:59:08.36
+812	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	539	POST	/api/assignments	::ffff:127.0.0.1	\N	\N	7021e7b4-11d4-445c-a9ea-19e7d842a885	{"baseId": 55, "assetId": null, "quantity": 413, "personnelName": "Everything Test", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0539"}	2026-09-30 00:59:08.377
+813	110	commander.alpha@mams.local	EXPENDITURE_CREATED	Expenditure	520	POST	/api/expenditures	::ffff:127.0.0.1	\N	\N	2e2a5fab-180d-43fa-9721-b7461563770e	{"baseId": 55, "reason": "TRAINING", "quantity": 2, "assignmentId": 539, "equipmentTypeId": 74, "referenceNumber": "EXP-2026-0520"}	2026-09-30 00:59:08.411
+814	109	admin@mams.local	PURCHASE_CREATED	Purchase	404	POST	/api/purchases	::ffff:127.0.0.1	\N	\N	590e1edc-041e-41f5-abb4-6d7033c31320	{"baseId": 55, "quantity": 110, "supplier": "Test Replenishment", "equipmentTypeId": 74, "referenceNumber": "PUR-2026-0404"}	2026-09-30 00:59:08.43
+815	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	540	POST	/api/assignments	::ffff:127.0.0.1	\N	\N	b4a99dd2-7195-4b8e-92fb-e3ad77dafd75	{"baseId": 55, "assetId": null, "quantity": 2, "personnelName": "Cross Check Test", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0540"}	2026-09-30 00:59:08.454
+816	113	logistics.alpha@mams.local	LOGIN	User	113	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	611196b6-9e91-42e8-a5b2-3f34a8054ad2	\N	2026-09-30 00:59:08.706
+822	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	04ab0c79-e22c-4b1a-90c1-fbcde7221aea	\N	2026-09-30 00:59:10.666
+823	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	131d9a5e-d655-496d-9f60-a7a006d8d6b5	\N	2026-09-30 00:59:10.916
+824	114	logistics.charlie@mams.local	LOGIN	User	114	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	fab44ddb-2431-4d8b-966a-56c54d057852	\N	2026-09-30 00:59:11.162
+826	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	746	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	f13d6be7-ac52-40b2-abc7-81e93bc80a72	{"quantity": 3, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0746", "destinationBaseId": 57}	2026-09-30 00:59:11.256
+830	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	748	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	d2cf966b-3e1e-45f2-8a9c-ef4a1a477eb3	{"quantity": 2, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0748", "destinationBaseId": 57}	2026-09-30 00:59:11.316
+834	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	750	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	d29b0c26-6c16-42bc-8ac1-a6b683003615	{"quantity": 5, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0750", "destinationBaseId": 57}	2026-09-30 00:59:11.371
+835	110	commander.alpha@mams.local	TRANSFER_CANCELLED	Transfer	750	POST	/api/transfers/750/cancel	::ffff:127.0.0.1	\N	\N	e6cef3ec-e34a-4b57-9273-7f760568a428	{"referenceNumber": "TRF-2026-0750"}	2026-09-30 00:59:11.38
+838	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	752	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	1ad12357-1117-472b-b257-809280c9f89a	{"quantity": 100127, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0752", "destinationBaseId": 57}	2026-09-30 00:59:11.412
+839	109	admin@mams.local	TRANSFER_APPROVED	Transfer	752	POST	/api/transfers/752/approve	::ffff:127.0.0.1	\N	\N	b6e00106-227e-4c9d-85d2-5d954b95e604	{"decidedBy": "admin@mams.local", "referenceNumber": "TRF-2026-0752"}	2026-09-30 00:59:11.422
+846	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	7896ba82-3232-404f-8e1d-046b12632695	\N	2026-09-30 00:59:13.341
+847	111	commander.bravo@mams.local	LOGIN	User	111	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	f452c4c8-a422-419c-9109-c76c26a3043e	\N	2026-09-30 00:59:13.59
+784	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	714471c1-373e-4a9b-b161-cae00f1c8a97	\N	2026-09-30 00:59:02.179
+785	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	c9cdac6a-d4c4-431f-ad72-00980772a348	\N	2026-09-30 00:59:02.437
+786	\N	admin@mams.local	LOGIN_FAILED	User	\N	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	13ec0702-6872-493c-8613-3f9979535d5f	{"reason": "invalid password"}	2026-09-30 00:59:02.673
+787	\N	nobody@mams.local	LOGIN_FAILED	User	\N	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	8e934777-3172-479f-a4d0-aee65a0707a5	{"reason": "unknown account"}	2026-09-30 00:59:02.69
+788	\N	admin@mams.local	LOGIN_FAILED	User	\N	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	da11a93f-cbc3-45cd-bc3a-447195ecfea1	{"reason": "invalid password"}	2026-09-30 00:59:02.926
+789	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	a7e7a9eb-39fa-40b2-a509-5ccd52db971d	\N	2026-09-30 00:59:03.189
+790	\N	admin@mams.local	LOGIN_FAILED	User	\N	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	4cec0ae5-961d-4189-8ceb-1a84291ad4b8	{"reason": "invalid password"}	2026-09-30 00:59:03.443
+794	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	6b9abfcd-f956-4c30-8e0a-16231463c811	\N	2026-09-30 00:59:05.422
+795	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	eea0d6fd-9c99-4b28-a787-40a8dadb0422	\N	2026-09-30 00:59:05.671
+796	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	3f752a63-da5a-4c2b-9093-1de5d367d035	\N	2026-09-30 00:59:05.919
+797	\N	admin@mams.local	LOGIN_FAILED	User	\N	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	4e6db8dd-24d3-4ece-95d1-7c2ead4d85da	{"reason": "invalid password"}	2026-09-30 00:59:06.156
+798	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	53856164-1902-4e53-b4c9-15e83fa77138	\N	2026-09-30 00:59:06.398
+817	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	7bfecea9-0968-4435-a341-08534f90d55c	\N	2026-09-30 00:59:08.999
+825	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	745	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	84641836-50b9-462f-9c84-26ca406744c6	{"quantity": 6, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0745", "destinationBaseId": 57}	2026-09-30 00:59:11.218
+827	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	747	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	ea37917a-e108-4c8d-8209-f1e386a08f2b	{"quantity": 7, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0747", "destinationBaseId": 57}	2026-09-30 00:59:11.277
+828	109	admin@mams.local	TRANSFER_APPROVED	Transfer	747	POST	/api/transfers/747/approve	::ffff:127.0.0.1	\N	\N	5720917f-7e4a-4843-88d1-485493bc2be3	{"decidedBy": "admin@mams.local", "referenceNumber": "TRF-2026-0747"}	2026-09-30 00:59:11.288
+829	114	logistics.charlie@mams.local	TRANSFER_COMPLETED	Transfer	747	POST	/api/transfers/747/complete	::ffff:127.0.0.1	\N	\N	9c312fa0-1839-45d1-a041-780f2a998a8d	{"quantity": 7, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0747", "destinationBaseId": 57}	2026-09-30 00:59:11.303
+831	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	749	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	4af57440-0163-4500-b7bd-265e8a9b3aa8	{"quantity": 2, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0749", "destinationBaseId": 57}	2026-09-30 00:59:11.333
+832	109	admin@mams.local	TRANSFER_APPROVED	Transfer	749	POST	/api/transfers/749/approve	::ffff:127.0.0.1	\N	\N	b9f860bf-cbb1-45df-87b5-5d1b0382b85a	{"decidedBy": "admin@mams.local", "referenceNumber": "TRF-2026-0749"}	2026-09-30 00:59:11.342
+833	114	logistics.charlie@mams.local	TRANSFER_COMPLETED	Transfer	749	POST	/api/transfers/749/complete	::ffff:127.0.0.1	\N	\N	c066100e-4bdf-46b6-a28c-c5ff9f8f138a	{"quantity": 2, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0749", "destinationBaseId": 57}	2026-09-30 00:59:11.352
+836	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	751	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	c1758e29-dc44-4f26-a247-2ac9a66f31dc	{"quantity": 5, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0751", "destinationBaseId": 57}	2026-09-30 00:59:11.391
+837	109	admin@mams.local	TRANSFER_REJECTED	Transfer	751	POST	/api/transfers/751/reject	::ffff:127.0.0.1	\N	\N	154bee10-7cf1-4377-9d3b-bd414c78c23d	{"reason": "Destination already holds sufficient stock", "referenceNumber": "TRF-2026-0751"}	2026-09-30 00:59:11.402
+840	110	commander.alpha@mams.local	TRANSFER_CREATED	Transfer	753	POST	/api/transfers	::ffff:127.0.0.1	\N	\N	836ef3ff-af0c-489d-bf78-82cfbbbdcca2	{"quantity": 2, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0753", "destinationBaseId": 57}	2026-09-30 00:59:11.438
+841	109	admin@mams.local	TRANSFER_APPROVED	Transfer	753	POST	/api/transfers/753/approve	::ffff:127.0.0.1	\N	\N	8eec896a-5abf-460a-9bbc-fd2598663892	{"decidedBy": "admin@mams.local", "referenceNumber": "TRF-2026-0753"}	2026-09-30 00:59:11.447
+842	113	logistics.alpha@mams.local	LOGIN	User	113	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	37c148c9-8ae6-4511-a8a9-be915bcc27fc	\N	2026-09-30 00:59:11.688
+848	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	01716561-65eb-4537-93e8-19e61a7f3956	\N	2026-09-30 00:59:14.03
+854	113	logistics.alpha@mams.local	PURCHASE_CREATED	Purchase	410	POST	/api/purchases	::1	node	\N	cf052245-aa0c-4e4d-bf76-9e56b3a239f7	{"baseId": 55, "quantity": 24000, "supplier": "Northwind Defence Supplies", "equipmentTypeId": 75, "referenceNumber": "PUR-2026-0410"}	2026-09-30 00:59:47.29
+855	114	logistics.charlie@mams.local	PURCHASE_CREATED	Purchase	411	POST	/api/purchases	::1	node	\N	56324e35-a027-4fc8-b58c-bfa753fd0079	{"baseId": 57, "quantity": 40000, "supplier": "Northwind Defence Supplies", "equipmentTypeId": 75, "referenceNumber": "PUR-2026-0411"}	2026-09-30 00:59:47.304
+856	109	admin@mams.local	PURCHASE_CREATED	Purchase	412	POST	/api/purchases	::1	node	\N	11e83198-afdb-4c7d-933c-2ff7c82c3eff	{"baseId": 56, "quantity": 16000, "supplier": "Northwind Defence Supplies", "equipmentTypeId": 75, "referenceNumber": "PUR-2026-0412"}	2026-09-30 00:59:47.316
+857	113	logistics.alpha@mams.local	PURCHASE_CREATED	Purchase	413	POST	/api/purchases	::1	node	\N	3a6ac410-845d-4758-b6df-e4c1394827ba	{"baseId": 55, "quantity": 120, "supplier": "Meridian Ordnance Corporation", "equipmentTypeId": 74, "referenceNumber": "PUR-2026-0413"}	2026-09-30 00:59:47.33
+858	113	logistics.alpha@mams.local	TRANSFER_CREATED	Transfer	755	POST	/api/transfers	::1	node	\N	54c97741-d57b-4068-9f13-9d901481d637	{"quantity": 40, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0755", "destinationBaseId": 56}	2026-09-30 00:59:47.382
+859	110	commander.alpha@mams.local	TRANSFER_APPROVED	Transfer	755	POST	/api/transfers/755/approve	::1	node	\N	90660909-bd33-4378-b257-bd66f7da9306	{"decidedBy": "commander.alpha@mams.local", "referenceNumber": "TRF-2026-0755"}	2026-09-30 00:59:47.395
+791	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	4bda1c12-975b-4aa2-b530-7c48008ed341	\N	2026-09-30 00:59:04.187
+792	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	6ea3525c-d04e-4658-9a9d-7375907501e3	\N	2026-09-30 00:59:04.435
+799	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	2253da6b-2c4e-4d0d-8a45-842dc355d1fb	\N	2026-09-30 00:59:07.246
+800	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	d5441437-12f3-44ea-aa0b-5f061ba6b5bb	\N	2026-09-30 00:59:07.502
+801	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	534	POST	/api/assignments	::ffff:127.0.0.1	\N	\N	2c3c4aa9-d36f-4ec3-9ff9-0b5df167fa31	{"baseId": 55, "assetId": null, "quantity": 8, "personnelName": "Test Personnel", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0534"}	2026-09-30 00:59:07.536
+802	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	535	POST	/api/assignments	::ffff:127.0.0.1	\N	\N	b2e4a366-228a-438c-be71-315425ba5078	{"baseId": 55, "assetId": null, "quantity": 5, "personnelName": "Return Test", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0535"}	2026-09-30 00:59:07.573
+803	110	commander.alpha@mams.local	ASSIGNMENT_RETURNED	Assignment	535	POST	/api/assignments/535/return	::ffff:127.0.0.1	\N	\N	fcca6440-0339-4a11-9d46-367bc1573d04	{"status": "RETURNED", "referenceNumber": "ASN-2026-0535", "returnedQuantity": 5, "outstandingBefore": 5}	2026-09-30 00:59:07.588
+804	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	536	POST	/api/assignments	::ffff:127.0.0.1	\N	\N	1be62fc5-4b9b-4876-bbab-49b3be6bec34	{"baseId": 55, "assetId": null, "quantity": 10, "personnelName": "Partial Return Test", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0536"}	2026-09-30 00:59:07.604
+805	110	commander.alpha@mams.local	ASSIGNMENT_RETURNED	Assignment	536	POST	/api/assignments/536/return	::ffff:127.0.0.1	\N	\N	5086d77c-f45c-4177-b814-782dc51ab671	{"status": "PARTIALLY_RETURNED", "referenceNumber": "ASN-2026-0536", "returnedQuantity": 4, "outstandingBefore": 10}	2026-09-30 00:59:07.617
+806	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	537	POST	/api/assignments	::ffff:127.0.0.1	\N	\N	988b33c1-be46-42fe-98ed-abf114623445	{"baseId": 55, "assetId": null, "quantity": 3, "personnelName": "Over Return Test", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0537"}	2026-09-30 00:59:07.631
+818	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	cc3ad41e-aa60-4fec-9ec7-21f36b5ed37b	\N	2026-09-30 00:59:10.043
+819	113	logistics.alpha@mams.local	LOGIN	User	113	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	9cc0c377-9444-4c6a-84f3-8854a785f0a9	\N	2026-09-30 00:59:10.29
+820	113	logistics.alpha@mams.local	PURCHASE_CREATED	Purchase	405	POST	/api/purchases	::ffff:127.0.0.1	\N	\N	4fc82ee8-5b0e-4870-b165-7452f2ab7d9b	{"baseId": 55, "quantity": 25, "supplier": "Test Supplier", "equipmentTypeId": 74, "referenceNumber": "PUR-2026-0405"}	2026-09-30 00:59:10.317
+821	113	logistics.alpha@mams.local	PURCHASE_CREATED	Purchase	406	POST	/api/purchases	::ffff:127.0.0.1	\N	\N	c92d8dc5-541e-4f75-ba9c-bd2af03b7b91	{"baseId": 55, "quantity": 3, "supplier": null, "equipmentTypeId": 74, "referenceNumber": "PUR-2026-0406"}	2026-09-30 00:59:10.334
+843	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	9eafa2c1-af55-485c-9b75-862fa63b48d2	\N	2026-09-30 00:59:12.441
+844	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	7bedcc12-8a96-4f81-b2d4-a22932fe763e	\N	2026-09-30 00:59:12.7
+845	113	logistics.alpha@mams.local	LOGIN	User	113	POST	/api/auth/login	::ffff:127.0.0.1	\N	\N	cbd19eb7-2ff1-4627-a51e-07f4e112ba40	\N	2026-09-30 00:59:12.949
+849	109	admin@mams.local	LOGIN	User	109	POST	/api/auth/login	::1	node	\N	dbdb1cf3-21aa-448e-b1a5-5253bce0f62f	\N	2026-09-30 00:59:46.285
+850	110	commander.alpha@mams.local	LOGIN	User	110	POST	/api/auth/login	::1	node	\N	dbe7f050-0422-4a28-b858-c403b9271aa8	\N	2026-09-30 00:59:46.54
+851	113	logistics.alpha@mams.local	LOGIN	User	113	POST	/api/auth/login	::1	node	\N	fe55a378-c01f-45a4-b77e-7298205f2453	\N	2026-09-30 00:59:46.787
+852	114	logistics.charlie@mams.local	LOGIN	User	114	POST	/api/auth/login	::1	node	\N	0981a84b-96b1-45e9-887d-4253e449b551	\N	2026-09-30 00:59:47.024
+853	111	commander.bravo@mams.local	LOGIN	User	111	POST	/api/auth/login	::1	node	\N	7ad09c33-e6f3-45c6-b54d-d01daf21cc48	\N	2026-09-30 00:59:47.263
+860	111	commander.bravo@mams.local	TRANSFER_COMPLETED	Transfer	755	POST	/api/transfers/755/complete	::1	node	\N	c8c970a3-f51e-45ef-bdf5-0eed9cfaf766	{"quantity": 40, "sourceBaseId": 55, "equipmentTypeId": 74, "referenceNumber": "TRF-2026-0755", "destinationBaseId": 56}	2026-09-30 00:59:47.408
+861	114	logistics.charlie@mams.local	TRANSFER_CREATED	Transfer	756	POST	/api/transfers	::1	node	\N	2bd39779-66c7-4ce8-bd93-58903fe557c8	{"quantity": 12000, "sourceBaseId": 57, "equipmentTypeId": 75, "referenceNumber": "TRF-2026-0756", "destinationBaseId": 55}	2026-09-30 00:59:47.423
+862	110	commander.alpha@mams.local	ASSIGNMENT_CREATED	Assignment	543	POST	/api/assignments	::1	node	\N	1b89f470-d5bd-48f2-af62-ffa402507885	{"baseId": 55, "assetId": null, "quantity": 30, "personnelName": "Capt. Arjun Rathore", "equipmentTypeId": 74, "referenceNumber": "ASN-2026-0543"}	2026-09-30 00:59:47.441
+863	110	commander.alpha@mams.local	EXPENDITURE_CREATED	Expenditure	522	POST	/api/expenditures	::1	node	\N	159cad4f-8118-40fd-8760-fae10011b44c	{"baseId": 55, "reason": "TRAINING", "quantity": 8, "assignmentId": 543, "equipmentTypeId": 74, "referenceNumber": "EXP-2026-0522"}	2026-09-30 00:59:47.459
+864	110	commander.alpha@mams.local	EXPENDITURE_CREATED	Expenditure	523	POST	/api/expenditures	::1	node	\N	38b92a65-a123-448d-ba5d-57b5d1f4747b	{"baseId": 55, "reason": "DAMAGE", "quantity": 5, "assignmentId": null, "equipmentTypeId": 74, "referenceNumber": "EXP-2026-0523"}	2026-09-30 00:59:47.472
+865	110	commander.alpha@mams.local	ASSIGNMENT_RETURNED	Assignment	543	POST	/api/assignments/543/return	::1	node	\N	57b968c2-04a8-4a45-a466-743005803c92	{"status": "PARTIALLY_RETURNED", "referenceNumber": "ASN-2026-0543", "returnedQuantity": 12, "outstandingBefore": 22}	2026-09-30 00:59:47.481
+866	109	admin@mams.local	PURCHASE_CREATED	Purchase	414	POST	/api/purchases	::1	node	\N	7b70800c-976f-41b7-bb31-62a19e3f425c	{"baseId": 56, "quantity": 25, "supplier": "Halcyon Logistics", "equipmentTypeId": 74, "referenceNumber": "PUR-2026-0414"}	2026-09-30 00:59:47.49
+867	109	admin@mams.local	PURCHASE_REVERSED	Purchase	414	POST	/api/purchases/414/reverse	::1	node	\N	6440cbe2-9b70-49ba-8ee5-defb42b12f84	{"baseId": 56, "reason": "Duplicate of order HL-2291, raised twice by the depot.", "quantity": 25, "equipmentTypeId": 74, "originalReference": "PUR-2026-0414", "reversalReference": "PUR-2026-0415"}	2026-09-30 00:59:47.5
 \.
 
 
@@ -912,9 +981,9 @@ COPY public.audit_logs (id, "userId", "userEmail", action, "entityType", "entity
 --
 
 COPY public.bases (id, code, name, location, description, "isActive", "createdAt", "updatedAt") FROM stdin;
-49	ALPHA	Alpha Base	Northern Command, Sector 4	Primary training and vehicle holding base.	t	2026-09-29 23:38:19.851	2026-09-29 23:38:19.851
-50	BRAVO	Bravo Base	Eastern Command, Airfield Station	Forward operating base with airlift support.	t	2026-09-29 23:38:19.854	2026-09-29 23:38:19.854
-51	CHARLIE	Charlie Base	Southern Command, Coastal Depot	Main logistics depot and ammunition storage.	t	2026-09-29 23:38:19.855	2026-09-29 23:38:19.855
+55	ALPHA	Alpha Base	Northern Command, Sector 4	Primary training and vehicle holding base.	t	2026-09-30 00:58:59.691	2026-09-30 00:58:59.691
+56	BRAVO	Bravo Base	Eastern Command, Airfield Station	Forward operating base with airlift support.	t	2026-09-30 00:58:59.694	2026-09-30 00:58:59.694
+57	CHARLIE	Charlie Base	Southern Command, Coastal Depot	Main logistics depot and ammunition storage.	t	2026-09-30 00:58:59.695	2026-09-30 00:58:59.695
 \.
 
 
@@ -923,10 +992,10 @@ COPY public.bases (id, code, name, location, description, "isActive", "createdAt
 --
 
 COPY public.equipment_types (id, code, name, category, "unitOfMeasure", "isTrackable", "isActive", description, "createdAt", "updatedAt") FROM stdin;
-65	PATROL_VEH	Patrol Vehicle	VEHICLE	vehicle	t	t	Four-wheel patrol vehicle, individually serialised.	2026-09-29 23:38:19.856	2026-09-29 23:38:19.856
-66	ASSAULT_RIFLE	Assault Rifle	WEAPON	weapon	t	t	Service rifle, individually serialised.	2026-09-29 23:38:19.857	2026-09-29 23:38:19.857
-67	AMMO_556	5.56mm Ammunition	AMMUNITION	round	f	t	Bulk quantity issue. Tracked by count only.	2026-09-29 23:38:19.858	2026-09-29 23:38:19.858
-68	RADIO_SET	Field Radio Set	OTHER	set	t	t	Manpack radio set, individually serialised.	2026-09-29 23:38:19.859	2026-09-29 23:38:19.859
+73	PATROL_VEH	Patrol Vehicle	VEHICLE	vehicle	t	t	Four-wheel patrol vehicle, individually serialised.	2026-09-30 00:58:59.696	2026-09-30 00:58:59.696
+74	ASSAULT_RIFLE	Assault Rifle	WEAPON	weapon	t	t	Service rifle, individually serialised.	2026-09-30 00:58:59.697	2026-09-30 00:58:59.697
+75	AMMO_556	5.56mm Ammunition	AMMUNITION	round	f	t	Bulk quantity issue. Tracked by count only.	2026-09-30 00:58:59.698	2026-09-30 00:58:59.698
+76	RADIO_SET	Field Radio Set	OTHER	set	t	t	Manpack radio set, individually serialised.	2026-09-30 00:58:59.7	2026-09-30 00:58:59.7
 \.
 
 
@@ -935,35 +1004,37 @@ COPY public.equipment_types (id, code, name, category, "unitOfMeasure", "isTrack
 --
 
 COPY public.expenditures (id, "referenceNumber", "baseId", "equipmentTypeId", quantity, "expenditureDate", reason, notes, status, "reversedById", "assignmentId", "recordedById", "createdAt", "updatedAt") FROM stdin;
-436	EXP-2026-0001	49	67	1950	2026-08-06	TRAINING	Re-certification range	ACTIVE	\N	\N	97	2026-09-29 23:38:20.185	2026-09-29 23:38:20.185
-437	EXP-2026-0002	49	67	700	2026-08-08	LOSS	Unrecovered after field exercise	ACTIVE	\N	\N	97	2026-09-29 23:38:20.187	2026-09-29 23:38:20.187
-438	EXP-2026-0003	50	67	1950	2026-08-10	MAINTENANCE	Consumed during scheduled servicing	ACTIVE	\N	\N	97	2026-09-29 23:38:20.188	2026-09-29 23:38:20.188
-439	EXP-2026-0004	50	67	8	2026-08-12	LOSS	Missing after convoy movement	ACTIVE	\N	\N	97	2026-09-29 23:38:20.188	2026-09-29 23:38:20.188
-440	EXP-2026-0005	49	68	2	2026-08-14	OTHER	Written off after inspection	ACTIVE	\N	\N	97	2026-09-29 23:38:20.189	2026-09-29 23:38:20.189
-441	EXP-2026-0006	51	67	1700	2026-08-16	MAINTENANCE	Consumed during scheduled servicing	ACTIVE	\N	\N	97	2026-09-29 23:38:20.19	2026-09-29 23:38:20.19
-442	EXP-2026-0007	51	68	5	2026-08-18	OTHER	Written off after inspection	ACTIVE	\N	\N	97	2026-09-29 23:38:20.191	2026-09-29 23:38:20.191
-443	EXP-2026-0008	51	66	2	2026-08-20	OTHER	Written off after inspection	ACTIVE	\N	\N	97	2026-09-29 23:38:20.192	2026-09-29 23:38:20.192
-444	EXP-2026-0009	51	66	2	2026-08-22	MAINTENANCE	Stripped for repairable components	ACTIVE	\N	\N	97	2026-09-29 23:38:20.193	2026-09-29 23:38:20.193
-445	EXP-2026-0010	49	68	8	2026-08-24	LOSS	Unrecovered after field exercise	ACTIVE	\N	\N	97	2026-09-29 23:38:20.194	2026-09-29 23:38:20.194
-446	EXP-2026-0011	51	67	1700	2026-08-26	OTHER	Written off after inspection	ACTIVE	\N	\N	97	2026-09-29 23:38:20.194	2026-09-29 23:38:20.194
-447	EXP-2026-0012	49	67	1200	2026-08-28	TRAINING	Live fire exercise	ACTIVE	\N	\N	97	2026-09-29 23:38:20.195	2026-09-29 23:38:20.195
-448	EXP-2026-0013	50	67	1700	2026-08-30	TRAINING	Live fire exercise	ACTIVE	\N	\N	97	2026-09-29 23:38:20.196	2026-09-29 23:38:20.196
-449	EXP-2026-0014	50	67	950	2026-09-01	TRAINING	Live fire exercise	ACTIVE	\N	\N	97	2026-09-29 23:38:20.196	2026-09-29 23:38:20.196
-450	EXP-2026-0015	49	67	200	2026-09-03	MAINTENANCE	Consumed during scheduled servicing	ACTIVE	\N	\N	97	2026-09-29 23:38:20.197	2026-09-29 23:38:20.197
-451	EXP-2026-0016	49	67	1700	2026-09-05	DAMAGE	Barrel heat damage beyond service limit	ACTIVE	\N	\N	97	2026-09-29 23:38:20.198	2026-09-29 23:38:20.198
-452	EXP-2026-0017	51	67	950	2026-09-07	TRAINING	Field training day	ACTIVE	\N	\N	97	2026-09-29 23:38:20.199	2026-09-29 23:38:20.199
-453	EXP-2026-0018	49	67	700	2026-09-09	MAINTENANCE	Consumed during scheduled servicing	ACTIVE	\N	\N	97	2026-09-29 23:38:20.199	2026-09-29 23:38:20.199
-454	EXP-2026-0019	50	67	1700	2026-09-11	DAMAGE	Optics cracked in transit	ACTIVE	\N	\N	97	2026-09-29 23:38:20.2	2026-09-29 23:38:20.2
-455	EXP-2026-0020	50	68	2	2026-09-13	DAMAGE	Barrel heat damage beyond service limit	ACTIVE	\N	\N	97	2026-09-29 23:38:20.201	2026-09-29 23:38:20.201
-456	EXP-2026-0021	51	68	5	2026-09-15	DAMAGE	Barrel heat damage beyond service limit	ACTIVE	\N	\N	97	2026-09-29 23:38:20.201	2026-09-29 23:38:20.201
-457	EXP-2026-0022	51	67	1200	2026-09-17	TRAINING	Re-certification range	ACTIVE	\N	\N	97	2026-09-29 23:38:20.202	2026-09-29 23:38:20.202
-458	EXP-2026-0023	51	67	450	2026-09-19	OTHER	Written off after inspection	ACTIVE	\N	\N	97	2026-09-29 23:38:20.203	2026-09-29 23:38:20.203
-459	EXP-2026-0024	49	66	8	2026-09-21	MAINTENANCE	Stripped for repairable components	ACTIVE	\N	\N	97	2026-09-29 23:38:20.203	2026-09-29 23:38:20.203
-460	EXP-2026-0025	50	65	5	2026-09-23	LOSS	Missing after convoy movement	ACTIVE	\N	\N	97	2026-09-29 23:38:20.204	2026-09-29 23:38:20.204
-461	EXP-2026-0026	51	66	5	2026-09-25	LOSS	Missing after convoy movement	ACTIVE	\N	\N	97	2026-09-29 23:38:20.205	2026-09-29 23:38:20.205
-462	EXP-2026-0027	49	67	950	2026-09-27	DAMAGE	Optics cracked in transit	ACTIVE	\N	\N	97	2026-09-29 23:38:20.205	2026-09-29 23:38:20.205
-463	EXP-2026-0463	49	66	8	2026-09-22	TRAINING	Consumed during the live fire serial.	ACTIVE	\N	484	98	2026-09-29 23:38:25.922	2026-09-29 23:38:25.924
-464	EXP-2026-0464	49	66	5	2026-09-24	DAMAGE	Barrel heat damage beyond service limit.	ACTIVE	\N	\N	98	2026-09-29 23:38:25.939	2026-09-29 23:38:25.94
+520	EXP-2026-0520	55	74	2	2026-09-30	TRAINING	\N	ACTIVE	\N	539	110	2026-09-30 00:59:08.396	2026-09-30 00:59:08.405
+522	EXP-2026-0522	55	74	8	2026-09-23	TRAINING	Consumed during the live fire serial.	ACTIVE	\N	543	110	2026-09-30 00:59:47.452	2026-09-30 00:59:47.454
+523	EXP-2026-0523	55	74	5	2026-09-25	DAMAGE	Barrel heat damage beyond service limit.	ACTIVE	\N	\N	110	2026-09-30 00:59:47.469	2026-09-30 00:59:47.47
+492	EXP-2026-0001	55	75	2	2026-08-06	TRAINING	Live fire exercise	ACTIVE	\N	\N	109	2026-09-30 00:59:01.195	2026-09-30 00:59:01.195
+493	EXP-2026-0002	55	75	1200	2026-08-08	TRAINING	Live fire exercise	ACTIVE	\N	\N	109	2026-09-30 00:59:01.197	2026-09-30 00:59:01.197
+494	EXP-2026-0003	57	76	5	2026-08-10	TRAINING	Live fire exercise	ACTIVE	\N	\N	109	2026-09-30 00:59:01.198	2026-09-30 00:59:01.198
+495	EXP-2026-0004	56	75	1700	2026-08-12	DAMAGE	Chassis damage during obstacle course	ACTIVE	\N	\N	109	2026-09-30 00:59:01.199	2026-09-30 00:59:01.199
+496	EXP-2026-0005	57	75	1700	2026-08-14	TRAINING	Field training day	ACTIVE	\N	\N	109	2026-09-30 00:59:01.2	2026-09-30 00:59:01.2
+497	EXP-2026-0006	56	73	8	2026-08-16	MAINTENANCE	Stripped for repairable components	ACTIVE	\N	\N	109	2026-09-30 00:59:01.201	2026-09-30 00:59:01.201
+498	EXP-2026-0007	55	75	1700	2026-08-18	DAMAGE	Optics cracked in transit	ACTIVE	\N	\N	109	2026-09-30 00:59:01.202	2026-09-30 00:59:01.202
+499	EXP-2026-0008	56	73	11	2026-08-20	TRAINING	Re-certification range	ACTIVE	\N	\N	109	2026-09-30 00:59:01.203	2026-09-30 00:59:01.203
+500	EXP-2026-0009	57	75	1950	2026-08-22	DAMAGE	Optics cracked in transit	ACTIVE	\N	\N	109	2026-09-30 00:59:01.204	2026-09-30 00:59:01.204
+501	EXP-2026-0010	56	75	11	2026-08-24	TRAINING	Re-certification range	ACTIVE	\N	\N	109	2026-09-30 00:59:01.204	2026-09-30 00:59:01.204
+502	EXP-2026-0011	56	73	2	2026-08-26	DAMAGE	Chassis damage during obstacle course	ACTIVE	\N	\N	109	2026-09-30 00:59:01.205	2026-09-30 00:59:01.205
+503	EXP-2026-0012	55	75	2	2026-08-28	LOSS	Unrecovered after field exercise	ACTIVE	\N	\N	109	2026-09-30 00:59:01.206	2026-09-30 00:59:01.206
+504	EXP-2026-0013	56	75	1450	2026-08-30	MAINTENANCE	Consumed during scheduled servicing	ACTIVE	\N	\N	109	2026-09-30 00:59:01.207	2026-09-30 00:59:01.207
+505	EXP-2026-0014	57	75	1450	2026-09-01	DAMAGE	Optics cracked in transit	ACTIVE	\N	\N	109	2026-09-30 00:59:01.207	2026-09-30 00:59:01.207
+506	EXP-2026-0015	57	75	700	2026-09-03	MAINTENANCE	Stripped for repairable components	ACTIVE	\N	\N	109	2026-09-30 00:59:01.208	2026-09-30 00:59:01.208
+507	EXP-2026-0016	57	76	2	2026-09-07	OTHER	Returned to supplier as defective	ACTIVE	\N	\N	109	2026-09-30 00:59:01.209	2026-09-30 00:59:01.209
+508	EXP-2026-0017	55	75	950	2026-09-09	DAMAGE	Barrel heat damage beyond service limit	ACTIVE	\N	\N	109	2026-09-30 00:59:01.209	2026-09-30 00:59:01.209
+509	EXP-2026-0018	55	73	2	2026-09-11	MAINTENANCE	Consumed during scheduled servicing	ACTIVE	\N	\N	109	2026-09-30 00:59:01.21	2026-09-30 00:59:01.21
+510	EXP-2026-0019	57	76	8	2026-09-13	OTHER	Written off after inspection	ACTIVE	\N	\N	109	2026-09-30 00:59:01.211	2026-09-30 00:59:01.211
+511	EXP-2026-0020	55	74	8	2026-09-15	TRAINING	Live fire exercise	ACTIVE	\N	\N	109	2026-09-30 00:59:01.211	2026-09-30 00:59:01.211
+512	EXP-2026-0021	57	75	950	2026-09-17	DAMAGE	Barrel heat damage beyond service limit	ACTIVE	\N	\N	109	2026-09-30 00:59:01.212	2026-09-30 00:59:01.212
+513	EXP-2026-0022	57	75	1200	2026-09-19	DAMAGE	Optics cracked in transit	ACTIVE	\N	\N	109	2026-09-30 00:59:01.213	2026-09-30 00:59:01.213
+514	EXP-2026-0023	57	76	8	2026-09-21	DAMAGE	Barrel heat damage beyond service limit	ACTIVE	\N	\N	109	2026-09-30 00:59:01.214	2026-09-30 00:59:01.214
+515	EXP-2026-0024	57	75	200	2026-09-23	OTHER	Written off after inspection	ACTIVE	\N	\N	109	2026-09-30 00:59:01.215	2026-09-30 00:59:01.215
+516	EXP-2026-0025	55	75	200	2026-09-25	MAINTENANCE	Consumed during scheduled servicing	ACTIVE	\N	\N	109	2026-09-30 00:59:01.216	2026-09-30 00:59:01.216
+517	EXP-2026-0026	56	75	1450	2026-09-27	LOSS	Unrecovered after field exercise	ACTIVE	\N	\N	109	2026-09-30 00:59:01.217	2026-09-30 00:59:01.217
+518	EXP-2026-0518	55	74	6	2026-09-30	DAMAGE	Barrel heat damage beyond service limit	ACTIVE	\N	\N	110	2026-09-30 00:59:08.313	2026-09-30 00:59:08.316
+519	EXP-2026-0519	55	74	5	2026-09-30	TRAINING	\N	ACTIVE	\N	538	110	2026-09-30 00:59:08.355	2026-09-30 00:59:08.356
 \.
 
 
@@ -972,32 +1043,33 @@ COPY public.expenditures (id, "referenceNumber", "baseId", "equipmentTypeId", qu
 --
 
 COPY public.purchases (id, "referenceNumber", "baseId", "equipmentTypeId", quantity, "unitPrice", supplier, "purchaseDate", notes, status, "reversedById", "createdById", "createdAt", "updatedAt") FROM stdin;
-342	PUR-2026-0001	50	67	14000	42.50	Meridian Ordnance Corporation	2026-08-02	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.12	2026-09-29 23:38:20.12
-343	PUR-2026-0002	50	67	20	42.50	Meridian Ordnance Corporation	2026-08-05	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.122	2026-09-29 23:38:20.122
-344	PUR-2026-0003	49	65	20	18840.07	Sterling Vehicle Works	2026-08-08	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.123	2026-09-29 23:38:20.123
-345	PUR-2026-0004	51	67	8000	42.50	Northwind Defence Supplies	2026-08-11	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.124	2026-09-29 23:38:20.124
-346	PUR-2026-0005	49	67	12000	42.50	Halcyon Logistics	2026-08-14	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.125	2026-09-29 23:38:20.125
-347	PUR-2026-0006	50	67	12000	42.50	Northwind Defence Supplies	2026-08-17	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.126	2026-09-29 23:38:20.126
-348	PUR-2026-0007	51	67	14000	42.50	Halcyon Logistics	2026-08-20	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.127	2026-09-29 23:38:20.127
-349	PUR-2026-0008	50	67	60	42.50	Halcyon Logistics	2026-08-23	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.128	2026-09-29 23:38:20.128
-350	PUR-2026-0009	49	67	8000	42.50	Sterling Vehicle Works	2026-08-26	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.128	2026-09-29 23:38:20.128
-351	PUR-2026-0010	51	67	12000	42.50	Sterling Vehicle Works	2026-08-29	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.129	2026-09-29 23:38:20.129
-352	PUR-2026-0011	49	67	10000	42.50	Halcyon Logistics	2026-09-01	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.13	2026-09-29 23:38:20.13
-353	PUR-2026-0012	51	68	20	22984.75	Sterling Vehicle Works	2026-09-04	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.131	2026-09-29 23:38:20.131
-354	PUR-2026-0013	50	67	16000	42.50	Sterling Vehicle Works	2026-09-07	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.131	2026-09-29 23:38:20.131
-355	PUR-2026-0014	49	67	10000	42.50	Meridian Ordnance Corporation	2026-09-10	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.132	2026-09-29 23:38:20.132
-356	PUR-2026-0015	49	67	60	42.50	Sterling Vehicle Works	2026-09-13	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.133	2026-09-29 23:38:20.133
-357	PUR-2026-0016	49	67	10000	42.50	Halcyon Logistics	2026-09-16	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.134	2026-09-29 23:38:20.134
-358	PUR-2026-0017	49	68	30	21141.47	Halcyon Logistics	2026-09-19	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.134	2026-09-29 23:38:20.134
-359	PUR-2026-0018	51	68	20	24778.86	Meridian Ordnance Corporation	2026-09-22	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.135	2026-09-29 23:38:20.135
-360	PUR-2026-0019	50	67	8000	42.50	Sterling Vehicle Works	2026-09-25	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.136	2026-09-29 23:38:20.136
-361	PUR-2026-0020	50	67	18000	42.50	Sterling Vehicle Works	2026-09-28	Routine replenishment order.	ACTIVE	\N	97	2026-09-29 23:38:20.137	2026-09-29 23:38:20.137
-362	PUR-2026-0362	49	67	24000	\N	Northwind Defence Supplies	2026-09-08	\N	ACTIVE	\N	101	2026-09-29 23:38:25.757	2026-09-29 23:38:25.76
-363	PUR-2026-0363	51	67	40000	\N	Northwind Defence Supplies	2026-09-08	\N	ACTIVE	\N	102	2026-09-29 23:38:25.775	2026-09-29 23:38:25.776
-364	PUR-2026-0364	50	67	16000	\N	Northwind Defence Supplies	2026-09-08	\N	ACTIVE	\N	97	2026-09-29 23:38:25.787	2026-09-29 23:38:25.788
-365	PUR-2026-0365	49	66	120	2150.00	Meridian Ordnance Corporation	2026-09-15	\N	ACTIVE	\N	101	2026-09-29 23:38:25.8	2026-09-29 23:38:25.801
-366	PUR-2026-0366	50	66	25	\N	Halcyon Logistics	2026-09-25	\N	REVERSED	\N	97	2026-09-29 23:38:25.958	2026-09-29 23:38:25.967
-367	PUR-2026-0367	50	66	25	\N	Halcyon Logistics	2026-09-29	Reversal of PUR-2026-0366: Duplicate of order HL-2291, raised twice by the depot.	REVERSED	366	97	2026-09-29 23:38:25.968	2026-09-29 23:38:25.969
+386	PUR-2026-0001	55	75	20	42.50	Northwind Defence Supplies	2026-08-02	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.126	2026-09-30 00:59:01.126
+387	PUR-2026-0002	57	75	18000	42.50	Halcyon Logistics	2026-08-05	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.128	2026-09-30 00:59:01.128
+388	PUR-2026-0003	57	75	8000	42.50	Northwind Defence Supplies	2026-08-11	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.129	2026-09-30 00:59:01.129
+389	PUR-2026-0004	57	75	14000	42.50	Meridian Ordnance Corporation	2026-08-14	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.129	2026-09-30 00:59:01.129
+390	PUR-2026-0005	56	75	40	42.50	Meridian Ordnance Corporation	2026-08-17	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.13	2026-09-30 00:59:01.13
+391	PUR-2026-0006	56	75	14000	42.50	Sterling Vehicle Works	2026-08-20	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.132	2026-09-30 00:59:01.132
+392	PUR-2026-0007	57	75	10000	42.50	Sterling Vehicle Works	2026-08-23	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.133	2026-09-30 00:59:01.133
+393	PUR-2026-0008	56	75	8000	42.50	Northwind Defence Supplies	2026-08-26	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.134	2026-09-30 00:59:01.134
+394	PUR-2026-0009	57	75	18000	42.50	Meridian Ordnance Corporation	2026-08-29	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.135	2026-09-30 00:59:01.135
+395	PUR-2026-0010	56	75	16000	42.50	Sterling Vehicle Works	2026-09-01	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.135	2026-09-30 00:59:01.135
+396	PUR-2026-0011	56	75	16000	42.50	Sterling Vehicle Works	2026-09-04	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.136	2026-09-30 00:59:01.136
+397	PUR-2026-0012	57	75	12000	42.50	Sterling Vehicle Works	2026-09-10	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.137	2026-09-30 00:59:01.137
+398	PUR-2026-0013	56	75	18000	42.50	Meridian Ordnance Corporation	2026-09-13	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.138	2026-09-30 00:59:01.138
+399	PUR-2026-0014	56	75	8000	42.50	Sterling Vehicle Works	2026-09-16	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.139	2026-09-30 00:59:01.139
+400	PUR-2026-0015	56	75	8000	42.50	Northwind Defence Supplies	2026-09-19	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.139	2026-09-30 00:59:01.139
+401	PUR-2026-0016	55	75	30	42.50	Northwind Defence Supplies	2026-09-22	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.14	2026-09-30 00:59:01.14
+402	PUR-2026-0017	57	75	60	42.50	Sterling Vehicle Works	2026-09-25	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.141	2026-09-30 00:59:01.141
+403	PUR-2026-0018	56	75	14000	42.50	Northwind Defence Supplies	2026-09-28	Routine replenishment order.	ACTIVE	\N	109	2026-09-30 00:59:01.141	2026-09-30 00:59:01.141
+404	PUR-2026-0404	55	74	110	\N	Test Replenishment	2026-09-30	\N	ACTIVE	\N	109	2026-09-30 00:59:08.423	2026-09-30 00:59:08.425
+405	PUR-2026-0405	55	74	25	\N	Test Supplier	2026-09-30	\N	ACTIVE	\N	113	2026-09-30 00:59:10.308	2026-09-30 00:59:10.31
+406	PUR-2026-0406	55	74	3	\N	\N	2026-09-30	\N	ACTIVE	\N	113	2026-09-30 00:59:10.331	2026-09-30 00:59:10.332
+410	PUR-2026-0410	55	75	24000	\N	Northwind Defence Supplies	2026-09-09	\N	ACTIVE	\N	113	2026-09-30 00:59:47.283	2026-09-30 00:59:47.285
+411	PUR-2026-0411	57	75	40000	\N	Northwind Defence Supplies	2026-09-09	\N	ACTIVE	\N	114	2026-09-30 00:59:47.302	2026-09-30 00:59:47.303
+412	PUR-2026-0412	56	75	16000	\N	Northwind Defence Supplies	2026-09-09	\N	ACTIVE	\N	109	2026-09-30 00:59:47.314	2026-09-30 00:59:47.315
+413	PUR-2026-0413	55	74	120	2150.00	Meridian Ordnance Corporation	2026-09-16	\N	ACTIVE	\N	113	2026-09-30 00:59:47.326	2026-09-30 00:59:47.328
+414	PUR-2026-0414	56	74	25	\N	Halcyon Logistics	2026-09-26	\N	REVERSED	\N	109	2026-09-30 00:59:47.487	2026-09-30 00:59:47.497
+415	PUR-2026-0415	56	74	25	\N	Halcyon Logistics	2026-09-30	Reversal of PUR-2026-0414: Duplicate of order HL-2291, raised twice by the depot.	REVERSED	414	109	2026-09-30 00:59:47.498	2026-09-30 00:59:47.499
 \.
 
 
@@ -1006,11 +1078,39 @@ COPY public.purchases (id, "referenceNumber", "baseId", "equipmentTypeId", quant
 --
 
 COPY public.refresh_tokens (id, "userId", "tokenHash", "expiresAt", "revokedAt", "userAgent", "ipAddress", "createdAt") FROM stdin;
-336	97	6123907118f41270d033c570c903a9eef7d2ab8d51325d52d26ebf60bc52c004	2026-10-06 23:38:24.714	\N	node	::1	2026-09-29 23:38:24.716
-337	98	453daf2ff0ba2a0c983df05cae9769ed09485cd866cabd850d9131700f948e98	2026-10-06 23:38:24.985	\N	node	::1	2026-09-29 23:38:24.986
-338	101	4e60808a7eea7bddd241fb5788481fbf7ba4c6c0265da4110cc55644165e8d54	2026-10-06 23:38:25.23	\N	node	::1	2026-09-29 23:38:25.231
-339	102	f4baa530347b5e47606e29b9ced5b08337ef20daa6634d5f7933107f92dccd44	2026-10-06 23:38:25.476	\N	node	::1	2026-09-29 23:38:25.477
-340	99	d69ccd8c4f111d3decd390479ae5c14fb14db07f053481a2852daa5ce1141cf1	2026-10-06 23:38:25.723	\N	node	::1	2026-09-29 23:38:25.724
+365	113	2f42617d25f998ef91db28c4078b52bbff46c78885010913efeb3e03aad5f079	2026-10-07 00:59:08.697	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:08.698
+366	109	b3aec707e0e8084b379262e1c2f581a3cf52a5d061150b18d71b07b7506297da	2026-10-07 00:59:08.979	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:08.981
+367	109	a0718bb82c2e2c744933f263a24236b276d7673eb6468abf787be43b82a455aa	2026-10-07 00:59:10.029	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:10.031
+368	113	e69f97a8575563c760976ca9dd61e1a9c69155b488f9265ca52c4b1bc9d50bfa	2026-10-07 00:59:10.284	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:10.285
+369	109	72549fd6999be6e7f37d10fd65b1deabb589bcd213d87d8aa0075dbcf40d6e8f	2026-10-07 00:59:10.647	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:10.648
+370	110	af987281b902972c691eece3b0593b0751b0c2f48efb46f3cfb4dcb30f7757fb	2026-10-07 00:59:10.901	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:10.902
+371	114	aa4321a16a6c67025933c5fb4d80c5056cc6a477405faf32ce376cc5aec7a734	2026-10-07 00:59:11.149	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:11.15
+372	113	93700362ef8ad7998b3d8cf4f44691aff8cf74cf27930515d987ddc4c7673558	2026-10-07 00:59:11.681	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:11.682
+373	109	e060d5e611a2185c9edda558127c4fa70ef78db42e6737cabfc39cedfde4e836	2026-10-07 00:59:12.418	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:12.42
+374	110	af7324687856844a6752712d7446968aafb08624e9457845ebf47f0b807a4054	2026-10-07 00:59:12.684	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:12.685
+375	113	422d8924f33d1b08394b476c162d4d45fdf4482d15b514a7a683844e2742a362	2026-10-07 00:59:12.933	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:12.934
+376	110	61dc61d796c3c89a9ee2a4beedb5466ce90bc9d9f60c7070d25750a02fcfe75b	2026-10-07 00:59:13.332	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:13.333
+377	111	ab32b941aed28f3f0fea66b7b4bb2b3430fcd93681cea12a3df38409a3c76ca4	2026-10-07 00:59:13.576	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:13.577
+378	109	77d1c68de544c63c8b7ec58da4cee0f8d0976846d7e7e8e5f863940e311e96b8	2026-10-07 00:59:14.015	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:14.016
+379	109	31fb4a486cfc8295889c54ca5ba69dc40fb09fc435bbac248d1aeb8a90803e79	2026-10-07 00:59:46.261	\N	node	::1	2026-09-30 00:59:46.264
+380	110	4d4baa7ce0aa5d6116195f9092584bb9c877e7935d47073ce69e26bba5507d3e	2026-10-07 00:59:46.532	\N	node	::1	2026-09-30 00:59:46.534
+381	113	24eaba8ba4519204c9d8a97b95709e1c59383b4f3ec95f49275b47ef0bfb1445	2026-10-07 00:59:46.772	\N	node	::1	2026-09-30 00:59:46.774
+382	114	26609588963bf01bf1ee83585c133d87c804c961d775efaff88cc7233cc03b47	2026-10-07 00:59:47.018	\N	node	::1	2026-09-30 00:59:47.02
+383	111	c6070c3efc22f59a3d4a5baff5306a9d8461b0d92e638d4b9cebb6c19e1033ea	2026-10-07 00:59:47.256	\N	node	::1	2026-09-30 00:59:47.258
+351	109	22ba8c4491345127b8a583c82f80a40844429d62e911e3e70a41ad1d1e4bfbc6	2026-10-07 00:59:02.154	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:02.157
+352	109	2e9241115814c1cf7b804335adf0658aaf8b0f02ecd93d270c6e94960e216da9	2026-10-07 00:59:02.423	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:02.424
+353	110	ff05b31efe7af892f2bc117389e1c437f52083402d66834a751d88f338093697	2026-10-07 00:59:03.183	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:03.185
+354	109	16d3fdabd6805688cb69647268fd2b686e65c1e0a16a880662cb05b6f9b7228c	2026-10-07 00:59:04.173	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:04.175
+355	110	4efd12370b3ba65592b733f151adce830e801d61420afa71c912dac452dc02fa	2026-10-07 00:59:04.428	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:04.429
+356	109	4f933052dec3fef055e76a69b31139e56754aff660d297033d7a837f337ce6f0	2026-10-07 00:59:05.049	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:05.051
+357	109	26568851461f9c9c02acda159fd8d8c7d02a36e45874a457ae176a42036df354	2026-10-07 00:59:05.411	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:05.412
+358	110	e3d8372b8aa0f73d54579bc47cea991b5099c7443f34cd3173d9e11cc5b9dc61	2026-10-07 00:59:05.657	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:05.659
+359	110	40e5bcc578e6cb4f7f6ec58896c4785c5d39725064072a5c478eb74f8c21da1a	2026-10-07 00:59:05.905	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:05.906
+360	109	1d6685f3f40c22caeb141fda229ca6c8229ed6d2d4ae8919000d2f4524953bae	2026-10-07 00:59:06.392	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:06.393
+361	109	8107476a57e669e15db4d0e1eb562ea8bdb45051bc62d3d06e476728e0155ed6	2026-10-07 00:59:07.231	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:07.234
+362	110	923f9f358b3bd7bf3c65153f0e1656bcfb353f5bf89287ab7600ac9aca3d6a5e	2026-10-07 00:59:07.486	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:07.488
+363	110	700e2930769c78f081a7f26d0483ecdf03327b967275f1434df93b3b918c6bcf	2026-10-07 00:59:08.024	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:08.026
+364	109	7ba7bfd8107cd2ed2ada88f9fabfc4952aa2893d5ed2698debe042ac5e24eec6	2026-10-07 00:59:08.276	\N	\N	::ffff:127.0.0.1	2026-09-30 00:59:08.278
 \.
 
 
@@ -1019,18 +1119,18 @@ COPY public.refresh_tokens (id, "userId", "tokenHash", "expiresAt", "revokedAt",
 --
 
 COPY public.stock_balances (id, "baseId", "equipmentTypeId", "openingQuantity", "openingDate", "onHandQuantity", "committedQuantity", version, "createdAt", "updatedAt") FROM stdin;
-240	49	65	24	2026-07-31	44	0	1	2026-09-29 23:38:20.099	2026-09-29 23:38:20.207
-243	49	68	30	2026-07-31	65	28	1	2026-09-29 23:38:20.106	2026-09-29 23:38:20.209
-244	50	65	16	2026-07-31	11	0	1	2026-09-29 23:38:20.107	2026-09-29 23:38:20.21
-247	50	68	18	2026-07-31	26	16	1	2026-09-29 23:38:20.112	2026-09-29 23:38:20.212
-248	51	65	12	2026-07-31	12	0	1	2026-09-29 23:38:20.113	2026-09-29 23:38:20.213
-249	51	66	220	2026-07-31	181	28	1	2026-09-29 23:38:20.115	2026-09-29 23:38:20.214
-251	51	68	22	2026-07-31	27	12	1	2026-09-29 23:38:20.117	2026-09-29 23:38:20.215
-242	49	67	96000	2026-07-31	184715	0	1	2026-09-29 23:38:20.105	2026-09-29 23:38:25.764
-250	51	67	120000	2026-07-31	169975	24	1	2026-09-29 23:38:20.116	2026-09-29 23:38:25.777
-246	50	67	54000	2026-07-31	127742	40	1	2026-09-29 23:38:20.11	2026-09-29 23:38:25.788
-241	49	66	480	2026-07-31	544	46	6	2026-09-29 23:38:20.103	2026-09-30 05:08:25.949
-245	50	66	260	2026-07-31	325	0	2	2026-09-29 23:38:20.109	2026-09-30 05:08:25.967
+279	57	74	220	2026-07-31	229	12	1	2026-09-30 00:59:01.122	2026-09-30 00:59:11.351
+272	55	75	96000	2026-07-31	128001	16	1	2026-09-30 00:59:01.112	2026-09-30 00:59:47.289
+280	57	75	120000	2026-07-31	221885	64	1	2026-09-30 00:59:01.123	2026-09-30 00:59:47.304
+276	56	75	54000	2026-07-31	165449	16	1	2026-09-30 00:59:01.118	2026-09-30 00:59:47.316
+271	55	74	480	2026-07-31	655	471	20	2026-09-30 00:59:01.111	2026-09-30 06:29:47.479
+275	56	74	260	2026-07-31	300	8	2	2026-09-30 00:59:01.117	2026-09-30 06:29:47.497
+270	55	73	24	2026-07-31	12	0	1	2026-09-30 00:59:01.108	2026-09-30 00:59:01.218
+273	55	76	30	2026-07-31	0	0	1	2026-09-30 00:59:01.114	2026-09-30 00:59:01.22
+274	56	73	16	2026-07-31	15	0	1	2026-09-30 00:59:01.116	2026-09-30 00:59:01.221
+277	56	76	18	2026-07-31	28	16	1	2026-09-30 00:59:01.12	2026-09-30 00:59:01.223
+278	57	73	12	2026-07-31	2	0	1	2026-09-30 00:59:01.121	2026-09-30 00:59:01.223
+281	57	76	22	2026-07-31	19	0	1	2026-09-30 00:59:01.124	2026-09-30 00:59:01.225
 \.
 
 
@@ -1039,39 +1139,53 @@ COPY public.stock_balances (id, "baseId", "equipmentTypeId", "openingQuantity", 
 --
 
 COPY public.transfers (id, "referenceNumber", "sourceBaseId", "destinationBaseId", "equipmentTypeId", quantity, status, "initiatedById", "approvedById", "decisionReason", notes, "completedAt", "cancelledAt", "createdAt", "updatedAt") FROM stdin;
-668	TRF-2026-0026	50	49	67	6000	CANCELLED	97	97	Cancelled by logistics, requirement withdrawn.	Awaiting or ending lifecycle action.	\N	\N	2026-09-20 23:38:19.753	2026-09-29 23:38:20.159
-669	TRF-2026-0027	50	51	67	15	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-24 19:38:19.753	\N	2026-09-23 23:38:19.753	2026-09-29 23:38:20.16
-670	TRF-2026-0028	50	49	66	15	CANCELLED	97	97	Cancelled by logistics, requirement withdrawn.	Awaiting or ending lifecycle action.	\N	\N	2026-09-25 23:38:19.753	2026-09-29 23:38:20.16
-671	TRF-2026-0029	50	49	66	15	REJECTED	97	97	Destination holding sufficient stock.	Awaiting or ending lifecycle action.	\N	\N	2026-09-26 23:38:19.753	2026-09-29 23:38:20.161
-672	TRF-2026-0030	51	49	67	20	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-28 19:38:19.753	\N	2026-09-27 23:38:19.753	2026-09-29 23:38:20.162
-673	TRF-2026-0031	51	49	66	20	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-29 19:38:19.753	\N	2026-09-28 23:38:19.753	2026-09-29 23:38:20.163
-674	TRF-2026-0674	49	50	66	40	COMPLETED	101	98	Approved against the quarterly distribution plan.	Reinforcement of the forward element ahead of the exercise programme. | Received and counted into stores.	2026-09-29 23:38:25.878	\N	2026-09-29 23:38:25.845	2026-09-29 23:38:25.879
-675	TRF-2026-0675	51	49	67	12000	PENDING	102	\N	\N	Awaiting approval from the source base.	\N	\N	2026-09-29 23:38:25.888	2026-09-29 23:38:25.891
-643	TRF-2026-0001	50	51	67	4000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-06 19:38:19.753	\N	2026-08-05 23:38:19.753	2026-09-29 23:38:20.138
-644	TRF-2026-0002	51	50	67	8000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-12 19:38:19.753	\N	2026-08-11 23:38:19.753	2026-09-29 23:38:20.14
-645	TRF-2026-0003	49	50	67	10000	REJECTED	97	97	Destination holding sufficient stock.	Awaiting or ending lifecycle action.	\N	\N	2026-08-12 23:38:19.753	2026-09-29 23:38:20.14
-646	TRF-2026-0004	49	51	67	4000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-14 19:38:19.753	\N	2026-08-13 23:38:19.753	2026-09-29 23:38:20.141
-647	TRF-2026-0005	50	49	68	15	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-16 19:38:19.753	\N	2026-08-15 23:38:19.753	2026-09-29 23:38:20.142
-648	TRF-2026-0006	49	50	66	15	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-20 19:38:19.753	\N	2026-08-19 23:38:19.753	2026-09-29 23:38:20.143
-649	TRF-2026-0007	50	51	66	25	REJECTED	97	97	Destination holding sufficient stock.	Awaiting or ending lifecycle action.	\N	\N	2026-08-21 23:38:19.753	2026-09-29 23:38:20.145
-650	TRF-2026-0008	50	49	67	8000	CANCELLED	97	97	Cancelled by logistics, requirement withdrawn.	Awaiting or ending lifecycle action.	\N	\N	2026-08-22 23:38:19.753	2026-09-29 23:38:20.145
-651	TRF-2026-0009	51	49	67	6000	REJECTED	97	97	Destination holding sufficient stock.	Awaiting or ending lifecycle action.	\N	\N	2026-08-23 23:38:19.753	2026-09-29 23:38:20.146
-652	TRF-2026-0010	49	50	68	10	REJECTED	97	97	Destination holding sufficient stock.	Awaiting or ending lifecycle action.	\N	\N	2026-08-24 23:38:19.753	2026-09-29 23:38:20.147
-653	TRF-2026-0011	51	49	67	8000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-26 19:38:19.753	\N	2026-08-25 23:38:19.753	2026-09-29 23:38:20.148
-654	TRF-2026-0012	50	51	67	20	PENDING	97	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-08-26 23:38:19.753	2026-09-29 23:38:20.148
-655	TRF-2026-0013	50	51	67	20	REJECTED	97	97	Destination holding sufficient stock.	Awaiting or ending lifecycle action.	\N	\N	2026-08-28 23:38:19.753	2026-09-29 23:38:20.149
-656	TRF-2026-0014	50	49	67	4000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-30 19:38:19.753	\N	2026-08-29 23:38:19.753	2026-09-29 23:38:20.15
-657	TRF-2026-0015	51	49	67	6000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-08-31 19:38:19.753	\N	2026-08-30 23:38:19.753	2026-09-29 23:38:20.151
-658	TRF-2026-0016	51	49	67	8000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-01 19:38:19.753	\N	2026-08-31 23:38:19.753	2026-09-29 23:38:20.151
-659	TRF-2026-0017	50	49	66	10	PENDING	97	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-09-02 23:38:19.753	2026-09-29 23:38:20.152
-660	TRF-2026-0018	49	50	66	20	CANCELLED	97	97	Cancelled by logistics, requirement withdrawn.	Awaiting or ending lifecycle action.	\N	\N	2026-09-05 23:38:19.753	2026-09-29 23:38:20.153
-661	TRF-2026-0019	51	50	67	6000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-08 19:38:19.753	\N	2026-09-07 23:38:19.753	2026-09-29 23:38:20.154
-662	TRF-2026-0020	51	50	68	25	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-09 19:38:19.753	\N	2026-09-08 23:38:19.753	2026-09-29 23:38:20.154
-663	TRF-2026-0021	50	51	67	10000	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-11 19:38:19.753	\N	2026-09-10 23:38:19.753	2026-09-29 23:38:20.155
-664	TRF-2026-0022	51	49	67	20	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-12 19:38:19.753	\N	2026-09-11 23:38:19.753	2026-09-29 23:38:20.156
-665	TRF-2026-0023	51	49	66	10	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-13 19:38:19.753	\N	2026-09-12 23:38:19.753	2026-09-29 23:38:20.156
-666	TRF-2026-0024	50	49	67	15	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-19 19:38:19.753	\N	2026-09-18 23:38:19.753	2026-09-29 23:38:20.157
-667	TRF-2026-0025	49	50	66	10	COMPLETED	97	97	\N	Movement completed with despatch and receipt confirmation.	2026-09-20 19:38:19.753	\N	2026-09-19 23:38:19.753	2026-09-29 23:38:20.158
+745	TRF-2026-0745	55	57	74	6	PENDING	110	\N	\N	\N	\N	\N	2026-09-30 00:59:11.208	2026-09-30 00:59:11.214
+747	TRF-2026-0747	55	57	74	7	COMPLETED	110	109	\N	\N	2026-09-30 00:59:11.301	\N	2026-09-30 00:59:11.275	2026-09-30 00:59:11.302
+749	TRF-2026-0749	55	57	74	2	COMPLETED	110	109	\N	\N	2026-09-30 00:59:11.351	\N	2026-09-30 00:59:11.331	2026-09-30 00:59:11.352
+751	TRF-2026-0751	55	57	74	5	REJECTED	110	109	Destination already holds sufficient stock	\N	\N	\N	2026-09-30 00:59:11.389	2026-09-30 00:59:11.401
+753	TRF-2026-0753	55	57	74	2	APPROVED	110	109	\N	\N	\N	\N	2026-09-30 00:59:11.437	2026-09-30 00:59:11.446
+755	TRF-2026-0755	55	56	74	40	COMPLETED	113	110	Approved against the quarterly distribution plan.	Reinforcement of the forward element ahead of the exercise programme. | Received and counted into stores.	2026-09-30 00:59:47.405	\N	2026-09-30 00:59:47.371	2026-09-30 00:59:47.407
+732	TRF-2026-0024	55	56	75	10000	CANCELLED	109	109	Cancelled by logistics, requirement withdrawn.	Awaiting or ending lifecycle action.	\N	\N	2026-09-12 00:58:59.494	2026-09-30 00:59:01.162
+733	TRF-2026-0025	57	56	76	10	PENDING	109	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-09-16 00:58:59.494	2026-09-30 00:59:01.163
+734	TRF-2026-0026	57	56	75	8000	REJECTED	109	109	Destination holding sufficient stock.	Awaiting or ending lifecycle action.	\N	\N	2026-09-17 00:58:59.494	2026-09-30 00:59:01.164
+735	TRF-2026-0027	57	56	75	10000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-18 20:58:59.494	\N	2026-09-18 00:58:59.494	2026-09-30 00:59:01.165
+736	TRF-2026-0028	57	56	75	4000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-19 20:58:59.494	\N	2026-09-19 00:58:59.494	2026-09-30 00:59:01.166
+737	TRF-2026-0029	57	55	75	4000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-20 20:58:59.494	\N	2026-09-20 00:58:59.494	2026-09-30 00:59:01.167
+738	TRF-2026-0030	57	55	75	15	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-22 20:58:59.494	\N	2026-09-22 00:58:59.494	2026-09-30 00:59:01.168
+739	TRF-2026-0031	55	57	76	10	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-23 20:58:59.494	\N	2026-09-23 00:58:59.494	2026-09-30 00:59:01.168
+740	TRF-2026-0032	56	55	75	6000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-24 20:58:59.494	\N	2026-09-24 00:58:59.494	2026-09-30 00:59:01.169
+741	TRF-2026-0033	57	56	73	25	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-25 20:58:59.494	\N	2026-09-25 00:58:59.494	2026-09-30 00:59:01.17
+742	TRF-2026-0034	57	56	74	25	CANCELLED	109	109	Cancelled by logistics, requirement withdrawn.	Awaiting or ending lifecycle action.	\N	\N	2026-09-26 00:58:59.494	2026-09-30 00:59:01.171
+743	TRF-2026-0035	56	57	75	6000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-27 20:58:59.494	\N	2026-09-27 00:58:59.494	2026-09-30 00:59:01.171
+744	TRF-2026-0036	56	57	76	10	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-28 20:58:59.494	\N	2026-09-28 00:58:59.494	2026-09-30 00:59:01.172
+709	TRF-2026-0001	57	56	75	8000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-07 20:58:59.494	\N	2026-08-07 00:58:59.494	2026-09-30 00:59:01.143
+710	TRF-2026-0002	56	57	76	15	PENDING	109	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-08-09 00:58:59.494	2026-09-30 00:59:01.144
+711	TRF-2026-0003	55	57	76	15	PENDING	109	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-08-10 00:58:59.494	2026-09-30 00:59:01.145
+712	TRF-2026-0004	56	57	75	8000	PENDING	109	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-08-14 00:58:59.494	2026-09-30 00:59:01.146
+746	TRF-2026-0746	55	57	74	3	PENDING	110	\N	\N	\N	\N	\N	2026-09-30 00:59:11.248	2026-09-30 00:59:11.251
+748	TRF-2026-0748	55	57	74	2	PENDING	110	\N	\N	\N	\N	\N	2026-09-30 00:59:11.314	2026-09-30 00:59:11.315
+750	TRF-2026-0750	55	57	74	5	CANCELLED	110	\N	\N	\N	\N	2026-09-30 00:59:11.378	2026-09-30 00:59:11.369	2026-09-30 00:59:11.379
+752	TRF-2026-0752	55	57	74	100127	APPROVED	110	109	\N	\N	\N	\N	2026-09-30 00:59:11.411	2026-09-30 00:59:11.421
+756	TRF-2026-0756	57	55	75	12000	PENDING	114	\N	\N	Awaiting approval from the source base.	\N	\N	2026-09-30 00:59:47.417	2026-09-30 00:59:47.419
+713	TRF-2026-0005	55	56	73	10	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-15 20:58:59.494	\N	2026-08-15 00:58:59.494	2026-09-30 00:59:01.147
+714	TRF-2026-0006	57	55	75	8000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-18 20:58:59.494	\N	2026-08-18 00:58:59.494	2026-09-30 00:59:01.148
+715	TRF-2026-0007	56	55	75	15	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-23 20:58:59.494	\N	2026-08-23 00:58:59.494	2026-09-30 00:59:01.15
+716	TRF-2026-0008	56	57	75	10000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-24 20:58:59.494	\N	2026-08-24 00:58:59.494	2026-09-30 00:59:01.151
+717	TRF-2026-0009	55	57	75	6000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-25 20:58:59.494	\N	2026-08-25 00:58:59.494	2026-09-30 00:59:01.152
+718	TRF-2026-0010	57	56	75	4000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-27 20:58:59.494	\N	2026-08-27 00:58:59.494	2026-09-30 00:59:01.152
+719	TRF-2026-0011	55	56	76	20	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-29 20:58:59.494	\N	2026-08-29 00:58:59.494	2026-09-30 00:59:01.153
+720	TRF-2026-0012	56	57	75	6000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-30 20:58:59.494	\N	2026-08-30 00:58:59.494	2026-09-30 00:59:01.154
+721	TRF-2026-0013	57	55	75	8000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-08-31 20:58:59.494	\N	2026-08-31 00:58:59.494	2026-09-30 00:59:01.155
+722	TRF-2026-0014	56	57	75	4000	PENDING	109	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-09-01 00:58:59.494	2026-09-30 00:59:01.155
+723	TRF-2026-0015	55	57	75	8000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-02 20:58:59.494	\N	2026-09-02 00:58:59.494	2026-09-30 00:59:01.156
+724	TRF-2026-0016	55	57	75	4000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-03 20:58:59.494	\N	2026-09-03 00:58:59.494	2026-09-30 00:59:01.157
+725	TRF-2026-0017	55	56	75	25	PENDING	109	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-09-05 00:58:59.494	2026-09-30 00:59:01.157
+726	TRF-2026-0018	56	57	73	15	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-06 20:58:59.494	\N	2026-09-06 00:58:59.494	2026-09-30 00:59:01.158
+727	TRF-2026-0019	56	57	76	20	CANCELLED	109	109	Cancelled by logistics, requirement withdrawn.	Awaiting or ending lifecycle action.	\N	\N	2026-09-07 00:58:59.494	2026-09-30 00:59:01.159
+728	TRF-2026-0020	55	56	75	25	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-08 20:58:59.494	\N	2026-09-08 00:58:59.494	2026-09-30 00:59:01.16
+729	TRF-2026-0021	57	56	75	10	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-09 20:58:59.494	\N	2026-09-09 00:58:59.494	2026-09-30 00:59:01.16
+730	TRF-2026-0022	57	55	75	4000	COMPLETED	109	109	\N	Movement completed with despatch and receipt confirmation.	2026-09-10 20:58:59.494	\N	2026-09-10 00:58:59.494	2026-09-30 00:59:01.161
+731	TRF-2026-0023	57	55	75	20	PENDING	109	\N	\N	Awaiting or ending lifecycle action.	\N	\N	2026-09-11 00:58:59.494	2026-09-30 00:59:01.162
 \.
 
 
@@ -1080,12 +1194,12 @@ COPY public.transfers (id, "referenceNumber", "sourceBaseId", "destinationBaseId
 --
 
 COPY public.users (id, name, email, "passwordHash", role, "baseId", "isActive", "tokenVersion", "lastLoginAt", "createdAt", "updatedAt") FROM stdin;
-100	Maj. Rohan Fernandes	commander.charlie@mams.local	$2b$12$iPnB6hdtZ0c4m9DLQTF98.A0VaSd.UiDbLfcsDH19brcxo4aOvF/a	BASE_COMMANDER	51	t	1	\N	2026-09-29 23:38:20.095	2026-09-29 23:38:20.095
-97	System Administrator	admin@mams.local	$2b$12$iPnB6hdtZ0c4m9DLQTF98.A0VaSd.UiDbLfcsDH19brcxo4aOvF/a	ADMIN	\N	t	1	2026-09-29 23:38:24.735	2026-09-29 23:38:20.09	2026-09-29 23:38:24.736
-98	Col. Devansh Kulkarni	commander.alpha@mams.local	$2b$12$iPnB6hdtZ0c4m9DLQTF98.A0VaSd.UiDbLfcsDH19brcxo4aOvF/a	BASE_COMMANDER	49	t	1	2026-09-29 23:38:24.989	2026-09-29 23:38:20.092	2026-09-29 23:38:24.99
-101	Sub. Sanjay Kulkarni	logistics.alpha@mams.local	$2b$12$iPnB6hdtZ0c4m9DLQTF98.A0VaSd.UiDbLfcsDH19brcxo4aOvF/a	LOGISTICS_OFFICER	49	t	1	2026-09-29 23:38:25.24	2026-09-29 23:38:20.096	2026-09-29 23:38:25.241
-102	Sub. Kavya Pillai	logistics.charlie@mams.local	$2b$12$iPnB6hdtZ0c4m9DLQTF98.A0VaSd.UiDbLfcsDH19brcxo4aOvF/a	LOGISTICS_OFFICER	51	t	1	2026-09-29 23:38:25.488	2026-09-29 23:38:20.097	2026-09-29 23:38:25.489
-99	Col. Ishita Bhattacharya	commander.bravo@mams.local	$2b$12$iPnB6hdtZ0c4m9DLQTF98.A0VaSd.UiDbLfcsDH19brcxo4aOvF/a	BASE_COMMANDER	50	t	1	2026-09-29 23:38:25.736	2026-09-29 23:38:20.094	2026-09-29 23:38:25.737
+112	Maj. Rohan Fernandes	commander.charlie@mams.local	$2b$12$aEiKCyE.9NfFgOYvv51tM.jmIgIm4oMgWgDOLzEGWNpqj9l7H6ZpW	BASE_COMMANDER	57	t	1	\N	2026-09-30 00:59:00.629	2026-09-30 00:59:00.629
+109	System Administrator	admin@mams.local	$2b$12$Cwcz1vrvjbFYyAHzsDnNou/FPh4vKLlLNPp7ioWMIYCnXdVSrlua2	ADMIN	\N	t	1	2026-09-30 00:59:46.282	2026-09-30 00:58:59.93	2026-09-30 00:59:46.284
+110	Col. Devansh Kulkarni	commander.alpha@mams.local	$2b$12$ZdqpK1foG0LZXr5fAGswYu967BBZ4/VEAX7ngCB9mffUdUG4.6CPq	BASE_COMMANDER	55	t	1	2026-09-30 00:59:46.537	2026-09-30 00:59:00.169	2026-09-30 00:59:46.539
+113	Sub. Sanjay Kulkarni	logistics.alpha@mams.local	$2b$12$soD7REF8D0cmWSWebPtV4.d4Nj.nMBVnUm5K6ny0BMm82W11Cc1te	LOGISTICS_OFFICER	55	t	1	2026-09-30 00:59:46.785	2026-09-30 00:59:00.867	2026-09-30 00:59:46.787
+114	Sub. Kavya Pillai	logistics.charlie@mams.local	$2b$12$rfj4kbi/ShFfSVj5WHMdleWDBzYxRX9pYHhIt3pSvsk2maJGBMjuG	LOGISTICS_OFFICER	57	t	1	2026-09-30 00:59:47.022	2026-09-30 00:59:01.096	2026-09-30 00:59:47.023
+111	Col. Ishita Bhattacharya	commander.bravo@mams.local	$2b$12$ixt3SP83UeRKo4ei.HAI8.VNLQjqCT0xyV2rLyRQ2BNtyqbq.0A4m	BASE_COMMANDER	56	t	1	2026-09-30 00:59:47.261	2026-09-30 00:59:00.399	2026-09-30 00:59:47.262
 \.
 
 
@@ -1093,77 +1207,77 @@ COPY public.users (id, name, email, "passwordHash", role, "baseId", "isActive", 
 -- Name: assets_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.assets_id_seq', 369, true);
+SELECT pg_catalog.setval('public.assets_id_seq', 419, true);
 
 
 --
 -- Name: assignments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.assignments_id_seq', 484, true);
+SELECT pg_catalog.setval('public.assignments_id_seq', 543, true);
 
 
 --
 -- Name: audit_logs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.audit_logs_id_seq', 766, true);
+SELECT pg_catalog.setval('public.audit_logs_id_seq', 867, true);
 
 
 --
 -- Name: bases_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.bases_id_seq', 51, true);
+SELECT pg_catalog.setval('public.bases_id_seq', 57, true);
 
 
 --
 -- Name: equipment_types_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.equipment_types_id_seq', 68, true);
+SELECT pg_catalog.setval('public.equipment_types_id_seq', 76, true);
 
 
 --
 -- Name: expenditures_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.expenditures_id_seq', 464, true);
+SELECT pg_catalog.setval('public.expenditures_id_seq', 523, true);
 
 
 --
 -- Name: purchases_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.purchases_id_seq', 367, true);
+SELECT pg_catalog.setval('public.purchases_id_seq', 415, true);
 
 
 --
 -- Name: refresh_tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.refresh_tokens_id_seq', 340, true);
+SELECT pg_catalog.setval('public.refresh_tokens_id_seq', 383, true);
 
 
 --
 -- Name: stock_balances_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.stock_balances_id_seq', 257, true);
+SELECT pg_catalog.setval('public.stock_balances_id_seq', 292, true);
 
 
 --
 -- Name: transfers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.transfers_id_seq', 675, true);
+SELECT pg_catalog.setval('public.transfers_id_seq', 756, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 102, true);
+SELECT pg_catalog.setval('public.users_id_seq', 114, true);
 
 
 --

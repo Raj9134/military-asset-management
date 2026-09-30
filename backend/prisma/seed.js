@@ -107,7 +107,6 @@ async function seedEquipmentTypes() {
 }
 
 async function seedUsers(bases) {
-  const passwordHash = await bcrypt.hash(DEMO_PASSWORD, 12);
   const [alpha, bravo] = bases;
 
   const rows = [
@@ -124,7 +123,16 @@ async function seedUsers(bases) {
     const user = await prisma.user.upsert({
       where: { email: row.email },
       update: { name: row.name, role: row.role, baseId: row.baseId },
-      create: { ...row, passwordHash, email: row.email.toLowerCase() },
+      create: {
+        ...row,
+        // Hashed per user rather than once for the whole set. The demo password
+        // is intentionally shared and documented, but reusing a single hash would
+        // also reuse its salt, so six identical hashes would give the game away
+        // that the accounts share a password, and one offline crack would cover
+        // all of them.
+        passwordHash: await bcrypt.hash(DEMO_PASSWORD, 12),
+        email: row.email.toLowerCase(),
+      },
     });
     created.push(user);
   }
